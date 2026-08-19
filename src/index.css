@@ -14,6 +14,10 @@
     --gold-line: rgba(229, 173, 8, 0.75);
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     background-color: var(--bg-main);
     color: var(--text-white);
@@ -33,6 +37,39 @@
   .font-body {
     font-family: 'Inter', sans-serif;
   }
+}
+
+/* Custom Cursor Hover Animation */
+.cursor-ring-hover {
+  width: 42px !important;
+  height: 42px !important;
+  border-color: #E5AD08 !important;
+  background-color: rgba(229, 173, 8, 0.12) !important;
+  box-shadow: 0 0 16px rgba(229, 173, 8, 0.25) !important;
+}
+
+/* Standardized 60FPS Micro-interaction classes */
+.interactive-card {
+  transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 300ms ease,
+              background-color 300ms ease,
+              box-shadow 300ms ease;
+}
+
+.interactive-card:hover {
+  transform: translateY(-3px);
+}
+
+.interactive-btn {
+  transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 300ms ease,
+              background-color 300ms ease,
+              color 200ms ease,
+              box-shadow 300ms ease;
+}
+
+.interactive-btn:active {
+  transform: scale(0.98);
 }
 
 /* Custom Scrollbar */
@@ -79,4 +116,16 @@
 ::selection {
   background-color: #E5AD08;
   color: #06090B;
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

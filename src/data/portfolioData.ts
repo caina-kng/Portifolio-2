@@ -304,8 +304,8 @@ export const SKILLS_DATA: SkillItem[] = [
 export const SOCIAL_LINKS: SocialLink[] = [
   {
     label: 'GitHub',
-    url: 'https://github.com/caina-kng',
-    username: 'caina-kng',
+    url: 'https://github.com/caina-kngg',
+    username: 'caina-kngg',
     icon: 'Github',
     type: 'github',
   },
@@ -322,13 +322,6 @@ export const SOCIAL_LINKS: SocialLink[] = [
     username: '@og_castrin',
     icon: 'Instagram',
     type: 'instagram',
-  },
-  {
-    label: 'E-mail',
-    url: 'mailto:joaocaina@gmail.com',
-    username: 'joaocaina@gmail.com',
-    icon: 'Mail',
-    type: 'email',
   },
 ];
 
