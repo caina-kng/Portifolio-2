@@ -53,7 +53,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#06090B] text-[#F4F4F1] selection:bg-[#E5AD08] selection:text-[#06090B]">
+    <div className="min-h-screen bg-[#0D0F12] text-[#F5F7FA] selection:bg-[#D4A017] selection:text-[#0D0F12]">
       {/* Desktop Custom Cursor with 60FPS lerp */}
       <CustomCursor />
 

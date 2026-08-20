@@ -2,16 +2,16 @@
 
 @layer base {
   :root {
-    --bg-main: #06090B;
-    --bg-secondary: #0C1014;
-    --bg-card: #10151A;
-    --text-white: #F4F4F1;
+    --bg-main: #0D0F12;
+    --bg-secondary: #121519;
+    --bg-card: #161A20;
+    --text-white: #F5F7FA;
     --text-gray-light: #B0B5BB;
-    --text-gray-muted: #737C85;
-    --gold: #E5AD08;
-    --gold-hover: #F5BD18;
-    --border-color: rgba(255, 255, 255, 0.10);
-    --gold-line: rgba(229, 173, 8, 0.75);
+    --text-gray-muted: #7C8793;
+    --gold: #D4A017;
+    --gold-hover: #E5AD08;
+    --border-color: rgba(255, 255, 255, 0.08);
+    --gold-line: rgba(212, 160, 23, 0.75);
   }
 
   html {

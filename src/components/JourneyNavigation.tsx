@@ -73,7 +73,7 @@ export const JourneyNavigation: React.FC<JourneyNavigationProps> = ({
         <div className="relative w-7 h-[230px] flex items-start justify-center flex-shrink-0">
           
           {/* Subtle Vertical Connector Guide */}
-          <div className="absolute top-3 bottom-3 w-[1px] bg-gradient-to-b from-[#E5AD08]/15 via-[#E5AD08]/40 to-[#E5AD08]/15" />
+          <div className="absolute top-3 bottom-3 w-[1px] bg-gradient-to-b from-[#D4A017]/15 via-[#D4A017]/40 to-[#D4A017]/15" />
 
           {/* Smoothly Sliding Active Radar Target Node via pure GPU transform */}
           <div
@@ -84,16 +84,16 @@ export const JourneyNavigation: React.FC<JourneyNavigationProps> = ({
           >
             {/* Outer Golden Target Ring */}
             <div
-              className={`w-6 h-6 border border-[#E5AD08] rounded-full flex items-center justify-center transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+              className={`w-6 h-6 border border-[#D4A017] rounded-full flex items-center justify-center transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                 hoveredTarget
-                  ? 'scale-115 border-[#F5BD18] shadow-[0_0_10px_rgba(229,173,8,0.7),0_0_24px_rgba(229,173,8,0.25)]'
-                  : 'shadow-[0_0_8px_rgba(229,173,8,0.6),0_0_20px_rgba(229,173,8,0.15)]'
+                  ? 'scale-115 border-[#E5AD08] shadow-[0_0_10px_rgba(212,160,23,0.7),0_0_24px_rgba(212,160,23,0.25)]'
+                  : 'shadow-[0_0_8px_rgba(212,160,23,0.6),0_0_20px_rgba(212,160,23,0.15)]'
               }`}
             >
               {/* Inner Solid Target Dot */}
               <div
-                className={`w-2 h-2 bg-[#E5AD08] rounded-full transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-                  hoveredTarget ? 'scale-125 bg-[#F5BD18]' : ''
+                className={`w-2 h-2 bg-[#D4A017] rounded-full transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                  hoveredTarget ? 'scale-125 bg-[#E5AD08]' : ''
                 }`}
               />
             </div>
@@ -118,18 +118,18 @@ export const JourneyNavigation: React.FC<JourneyNavigationProps> = ({
                 onMouseLeave={() => setHoveredTarget(null)}
                 aria-label={item.ariaLabel}
                 aria-current={isActive ? 'true' : undefined}
-                className={`h-[36px] flex items-center gap-3 text-left transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] cursor-pointer select-none rounded-sm px-2.5 py-1 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#E5AD08] ${
+                className={`h-[36px] flex items-center gap-3 text-left transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] cursor-pointer select-none rounded-sm px-2.5 py-1 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#D4A017] ${
                   isActive
                     ? 'opacity-100'
-                    : 'opacity-65 hover:opacity-100 hover:translate-x-1'
+                    : 'opacity-60 hover:opacity-100 hover:translate-x-1'
                 }`}
               >
                 {/* Number */}
                 <span
                   className={`font-bold transition-colors duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                     isActive || isHovered
-                      ? 'text-[#E5AD08]'
-                      : 'text-[#E5AD08]/70'
+                      ? 'text-[#D4A017]'
+                      : 'text-[#D4A017]/70'
                   }`}
                 >
                   {item.number}
@@ -139,10 +139,10 @@ export const JourneyNavigation: React.FC<JourneyNavigationProps> = ({
                 <span
                   className={`font-semibold tracking-[0.18em] transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                     isActive
-                      ? 'text-[#F4F4F1] drop-shadow-[0_0_8px_rgba(244,244,241,0.25)]'
+                      ? 'text-[#F5F7FA] drop-shadow-[0_0_8px_rgba(245,247,250,0.25)]'
                       : isHovered
-                      ? 'text-[#F4F4F1]'
-                      : 'text-[#B0B5BB]'
+                      ? 'text-[#F5F7FA]'
+                      : 'text-[#7C8793]'
                   }`}
                 >
                   {item.label}
@@ -150,7 +150,7 @@ export const JourneyNavigation: React.FC<JourneyNavigationProps> = ({
 
                 {/* Micro indicator dot when active */}
                 {isActive && (
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#E5AD08] animate-pulse ml-1" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D4A017] animate-pulse ml-1" />
                 )}
               </button>
             );
@@ -160,8 +160,8 @@ export const JourneyNavigation: React.FC<JourneyNavigationProps> = ({
 
       {/* ─── MOBILE / TABLET COMPACT HORIZONTAL BAR ─── */}
       <div className="lg:hidden w-full pt-4">
-        <div className="text-[10px] font-mono text-[#737C85] tracking-widest uppercase mb-2">
-          JORNADA INTERATIVA // EXPLORAR
+        <div className="text-[10px] font-mono text-[#7C8793] tracking-widest uppercase mb-2">
+          JORNADA INTERATIVA // ÍNDICE
         </div>
         <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
           {JOURNEY_NAV_ITEMS.map((item) => {
@@ -173,11 +173,11 @@ export const JourneyNavigation: React.FC<JourneyNavigationProps> = ({
                 aria-label={item.ariaLabel}
                 className={`flex-shrink-0 px-3 py-1.5 border text-[11px] font-mono tracking-wider flex items-center gap-1.5 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] cursor-pointer ${
                   isActive
-                    ? 'border-[#E5AD08] bg-[#0C1014] text-[#F4F4F1] shadow-[0_0_10px_rgba(229,173,8,0.2)]'
-                    : 'border-[rgba(255,255,255,0.10)] bg-[#06090B] text-[#737C85] hover:text-[#F4F4F1] hover:border-[rgba(255,255,255,0.25)]'
+                    ? 'border-[#D4A017] bg-[#121519] text-[#F5F7FA] shadow-[0_0_10px_rgba(212,160,23,0.2)]'
+                    : 'border-[rgba(255,255,255,0.08)] bg-[#0D0F12] text-[#7C8793] hover:text-[#F5F7FA] hover:border-[rgba(255,255,255,0.2)]'
                 }`}
               >
-                <span className="text-[#E5AD08] font-bold">{item.number}</span>
+                <span className="text-[#D4A017] font-bold">{item.number}</span>
                 <span className="font-semibold">{item.label}</span>
               </button>
             );
