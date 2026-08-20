@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowUp } from 'lucide-react';
 import { SOCIAL_LINKS } from '../data/portfolioData';
+import { smoothScrollToY } from '../lib/smoothScroll';
 
 export const Footer: React.FC = () => {
   const [currentTime, setCurrentTime] = useState<string>('');
@@ -24,10 +25,7 @@ export const Footer: React.FC = () => {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
+    smoothScrollToY(0);
   };
 
   return (

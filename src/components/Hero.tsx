@@ -3,13 +3,15 @@ import { motion } from 'motion/react';
 import heroBgImage from '../assets/images/hero_bg_composite_1787162425801.jpg';
 import { JourneyNavigation } from './JourneyNavigation';
 import { EASE_SMOOTH } from '../lib/motion';
+import { smoothScrollToElement } from '../lib/smoothScroll';
 
 interface HeroProps {
   onExploreClick: () => void;
   onProjectsClick: () => void;
+  onContactClick: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
+export const Hero: React.FC<HeroProps> = ({ onExploreClick, onContactClick }) => {
   const [activeTarget, setActiveTarget] = useState<string>('disciplina');
   const [hoveredTarget, setHoveredTarget] = useState<string>('');
 
@@ -63,19 +65,16 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
 
   const handleSelectJourneyTarget = (target: string) => {
     setActiveTarget(target);
-    const element = document.getElementById(target);
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-      });
-    }
+    smoothScrollToElement(target, {
+      alignment: 'center',
+      offset: 40,
+    });
   };
 
   return (
     <section
       id="inicio"
-      className="relative min-h-screen flex flex-col justify-between pt-24 pb-10 overflow-hidden bg-[#06090B] border-b border-[rgba(255,255,255,0.10)]"
+      className="relative min-h-screen flex flex-col justify-between pt-8 sm:pt-12 md:pt-16 pb-8 sm:pb-10 overflow-hidden bg-[#06090B] border-b border-[rgba(255,255,255,0.10)]"
     >
       {/* Background Grid & Radar Overlay */}
       <div className="absolute inset-0 bg-tech-grid opacity-30 pointer-events-none" />
@@ -168,18 +167,28 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
               Militar, ex-jogador federado e entusiasta de tecnologia explorando Inteligência Artificial, dados e esporte para transformar ideias em projetos.
             </motion.p>
 
-            {/* Action CTA Button with subtle hover */}
+            {/* Action CTA Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.45, ease: EASE_SMOOTH }}
+              className="flex flex-wrap items-center gap-3 sm:gap-4"
             >
               <button
                 onClick={onExploreClick}
                 id="hero-btn-conhecer"
-                className="interactive-btn group border border-[#E5AD08] text-[#E5AD08] px-7 py-3.5 font-mono text-xs font-bold uppercase tracking-[0.16em] flex items-center gap-2 hover:bg-[#E5AD08] hover:text-[#06090B] cursor-pointer shadow-[0_0_15px_rgba(229,173,8,0.2)]"
+                className="interactive-btn group bg-[#E5AD08] text-[#06090B] px-6 sm:px-7 py-3 sm:py-3.5 font-mono text-xs font-bold uppercase tracking-[0.14em] flex items-center gap-2 hover:bg-[#F5BD18] cursor-pointer shadow-[0_0_15px_rgba(229,173,8,0.25)] transition-all duration-300"
               >
-                <span>CONHECER MINHA JORNADA</span>
+                <span>EXPLORAR TRAJETÓRIA</span>
+                <span className="interactive-arrow text-sm font-sans">↗</span>
+              </button>
+
+              <button
+                onClick={onContactClick}
+                id="hero-btn-falar"
+                className="interactive-btn group border border-[#E5AD08]/80 text-[#E5AD08] px-5 sm:px-6 py-3 sm:py-3.5 font-mono text-xs font-bold uppercase tracking-[0.14em] flex items-center gap-2 hover:bg-[#E5AD08] hover:text-[#06090B] cursor-pointer transition-all duration-300"
+              >
+                <span>FALAR COM JOÃO</span>
                 <span className="interactive-arrow text-sm font-sans">↗</span>
               </button>
             </motion.div>

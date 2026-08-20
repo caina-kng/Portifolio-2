@@ -4,7 +4,6 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { TrajectorySection } from './components/TrajectorySection';
 import { ProjectSection } from './components/ProjectSection';
@@ -13,9 +12,10 @@ import { AboutSection } from './components/AboutSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { CustomCursor } from './components/CustomCursor';
+import { smoothScrollToElement } from './lib/smoothScroll';
 
 export default function App() {
-  const [activeSection, setActiveSection] = useState<string>('inicio');
+  const [, setActiveSection] = useState<string>('inicio');
 
   // Lightweight 60FPS scroll spy using IntersectionObserver instead of heavy scroll listener
   useEffect(() => {
@@ -46,19 +46,10 @@ export default function App() {
   }, []);
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      const offset = 75;
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      });
-    }
+    smoothScrollToElement(id, {
+      offset: 35,
+      alignment: 'top',
+    });
   };
 
   return (
@@ -66,15 +57,13 @@ export default function App() {
       {/* Desktop Custom Cursor with 60FPS lerp */}
       <CustomCursor />
 
-      {/* Fixed Header */}
-      <Header activeSection={activeSection} />
-
       {/* Main Pages Flow */}
       <main>
         {/* 01 Início */}
         <Hero
           onExploreClick={() => scrollToSection('trajetoria')}
           onProjectsClick={() => scrollToSection('projetos')}
+          onContactClick={() => scrollToSection('contato')}
         />
 
         {/* 02 Trajetória */}

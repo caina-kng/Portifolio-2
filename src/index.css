@@ -15,7 +15,7 @@
   }
 
   html {
-    scroll-behavior: smooth;
+    /* Smooth scrolling handled dynamically by custom 60FPS interpolated engine */
   }
 
   body {
