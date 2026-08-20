@@ -46,7 +46,7 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
   return (
     <header
       id="main-header"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
         isScrolled
           ? 'bg-[#06090B]/95 backdrop-blur-md border-b border-[rgba(255,255,255,0.10)] py-3 shadow-2xl'
           : 'bg-[#06090B]/85 backdrop-blur-sm border-b border-[rgba(255,255,255,0.10)] py-4'
@@ -59,13 +59,13 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
           className="flex items-center gap-3.5 group text-left focus:outline-none cursor-pointer"
           id="brand-logo-btn"
         >
-          <div className="border border-[#E5AD08]/80 group-hover:border-[#E5AD08] px-2.5 py-1 transition-colors bg-[#0C1014]/60">
+          <div className="border border-[#E5AD08]/80 group-hover:border-[#E5AD08] px-2.5 py-1 transition-colors duration-300 bg-[#0C1014]/60">
             <span className="font-condensed text-xl sm:text-2xl font-bold tracking-tight text-[#E5AD08]">
               JC
             </span>
           </div>
           <div className="flex flex-col">
-            <span className="text-sm font-bold tracking-[0.18em] uppercase text-[#F4F4F1] group-hover:text-white transition-colors font-body">
+            <span className="text-sm font-bold tracking-[0.18em] uppercase text-[#F4F4F1] group-hover:text-white transition-colors duration-300 font-body">
               JOÃO CAINÃ
             </span>
             <span className="text-[10px] text-[#737C85] font-mono tracking-[0.2em] uppercase">
@@ -88,7 +88,7 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
                 key={item.id}
                 id={`nav-link-${item.id}`}
                 onClick={() => scrollTo(item.id)}
-                className={`transition-all py-1 flex items-center gap-1.5 cursor-pointer relative group ${
+                className={`py-1 flex items-center gap-1.5 cursor-pointer relative group transition-colors duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                   isActive
                     ? 'text-[#F4F4F1] font-semibold'
                     : 'text-[#B0B5BB] hover:text-[#F4F4F1]'
@@ -99,13 +99,13 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
                     isActive
                       ? 'text-[#E5AD08]'
                       : 'text-[#737C85] group-hover:text-[#E5AD08]'
-                  } transition-colors`}
+                  } transition-colors duration-300`}
                 >
                   {item.number}
                 </span>
                 <span>{item.label}</span>
                 {isActive && (
-                  <span className="absolute bottom-[-17px] left-0 right-0 h-[2px] bg-[#E5AD08] shadow-[0_0_8px_#E5AD08]" />
+                  <span className="absolute bottom-[-17px] left-0 right-0 h-[2px] bg-[#E5AD08] shadow-[0_0_8px_#E5AD08] transition-all duration-300" />
                 )}
               </button>
             );
@@ -126,9 +126,10 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
           <button
             onClick={() => scrollTo('contato')}
             id="header-cta-btn"
-            className="border border-[#E5AD08] px-4 py-2 text-[11px] font-mono font-bold uppercase tracking-[0.15em] text-[#E5AD08] hover:bg-[#E5AD08] hover:text-[#06090B] transition-all duration-200 cursor-pointer shadow-[0_0_12px_rgba(229,173,8,0.15)]"
+            className="interactive-btn group border border-[#E5AD08] px-4 py-2 text-[11px] font-mono font-bold uppercase tracking-[0.15em] text-[#E5AD08] hover:bg-[#E5AD08] hover:text-[#06090B] cursor-pointer shadow-[0_0_12px_rgba(229,173,8,0.15)] flex items-center gap-1.5"
           >
-            FALAR COM JOÃO ↗
+            <span>FALAR COM JOÃO</span>
+            <span className="interactive-arrow text-xs">↗</span>
           </button>
         </div>
 
@@ -142,7 +143,7 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 bg-[#10151A] border border-[rgba(255,255,255,0.10)] text-[#F4F4F1] hover:text-[#E5AD08] transition-colors cursor-pointer"
+            className="p-2 bg-[#10151A] border border-[rgba(255,255,255,0.10)] text-[#F4F4F1] hover:text-[#E5AD08] transition-colors duration-300 cursor-pointer"
             aria-label="Abrir menu"
             id="mobile-menu-toggle"
           >
@@ -159,7 +160,7 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
       {mobileMenuOpen && (
         <div
           id="mobile-menu-drawer"
-          className="lg:hidden fixed inset-x-0 top-[62px] bg-[#06090B]/98 backdrop-blur-xl border-b border-[rgba(255,255,255,0.10)] px-6 py-6 shadow-2xl animate-in fade-in slide-in-from-top-2 duration-200 z-50"
+          className="lg:hidden fixed inset-x-0 top-[62px] bg-[#06090B]/98 backdrop-blur-xl border-b border-[rgba(255,255,255,0.10)] px-6 py-6 shadow-2xl transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] z-50"
         >
           <div className="flex flex-col space-y-4">
             <div className="flex items-center justify-between pb-3 border-b border-[rgba(255,255,255,0.10)]">
@@ -177,7 +178,7 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
                 <button
                   key={item.id}
                   onClick={() => scrollTo(item.id)}
-                  className={`flex items-center justify-between w-full py-2.5 px-2 text-left transition-colors ${
+                  className={`flex items-center justify-between w-full py-2.5 px-2 text-left transition-colors duration-300 ${
                     isActive
                       ? 'text-[#E5AD08] border-l-2 border-[#E5AD08] pl-3 bg-[#0C1014]'
                       : 'text-[#F4F4F1] hover:text-[#E5AD08]'
@@ -196,7 +197,7 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
             <div className="pt-4 border-t border-[rgba(255,255,255,0.10)]">
               <button
                 onClick={() => scrollTo('contato')}
-                className="w-full py-3 bg-[#E5AD08] text-[#06090B] font-bold text-xs uppercase tracking-widest font-mono cursor-pointer"
+                className="w-full py-3 bg-[#E5AD08] text-[#06090B] font-bold text-xs uppercase tracking-widest font-mono cursor-pointer transition-transform active:scale-98"
               >
                 FALAR COM JOÃO ↗
               </button>

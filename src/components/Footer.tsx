@@ -62,9 +62,10 @@ export const Footer: React.FC = () => {
                 href={link.url}
                 target={link.type === 'email' ? undefined : '_blank'}
                 rel={link.type === 'email' ? undefined : 'noopener noreferrer'}
-                className="hover:text-[#E5AD08] transition-colors"
+                className="group hover:text-[#E5AD08] transition-colors duration-300 flex items-center gap-1"
               >
-                {link.label} ↗
+                <span>{link.label}</span>
+                <span className="interactive-arrow text-xs">↗</span>
               </a>
             ))}
           </div>
@@ -82,11 +83,11 @@ export const Footer: React.FC = () => {
 
             <button
               onClick={scrollToTop}
-              className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#0C1014] hover:bg-[#E5AD08] text-[#F4F4F1] hover:text-[#06090B] border border-[rgba(255,255,255,0.10)] transition-colors group cursor-pointer text-[10px] font-mono font-bold uppercase tracking-widest"
+              className="interactive-btn inline-flex items-center gap-2 px-4 py-2.5 bg-[#0C1014] hover:bg-[#E5AD08] text-[#F4F4F1] hover:text-[#06090B] border border-[rgba(255,255,255,0.10)] group cursor-pointer text-[10px] font-mono font-bold uppercase tracking-widest"
               title="Voltar ao topo"
             >
               <span>TOPO</span>
-              <ArrowUp className="w-3.5 h-3.5 transition-transform group-hover:-translate-y-0.5" />
+              <ArrowUp className="w-3.5 h-3.5 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-0.5" />
             </button>
           </div>
 

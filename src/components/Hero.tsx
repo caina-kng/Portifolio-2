@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowUpRight } from 'lucide-react';
+import { motion } from 'motion/react';
 import heroBgImage from '../assets/images/hero_bg_composite_1787162425801.jpg';
 import { JourneyNavigation } from './JourneyNavigation';
+import { EASE_SMOOTH } from '../lib/motion';
 
 interface HeroProps {
   onExploreClick: () => void;
@@ -12,7 +13,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
   const [activeTarget, setActiveTarget] = useState<string>('disciplina');
   const [hoveredTarget, setHoveredTarget] = useState<string>('');
 
-  // Scroll spy via IntersectionObserver
+  // Scroll spy via IntersectionObserver with non-blocking checks
   useEffect(() => {
     const targetIds = ['esporte', 'dados', 'disciplina', 'tecnologia', 'construcao'];
     const elements = targetIds
@@ -27,7 +28,6 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
         if (heroElement) {
           const heroEntry = entries.find((e) => e.target.id === 'inicio');
           if (heroEntry && heroEntry.isIntersecting && heroEntry.intersectionRatio > 0.4) {
-            // When back in Hero and none of the specific items are intersecting, default to 03 DISCIPLINA
             const isAnyOtherIntersecting = entries.some(
               (e) => e.target.id !== 'inicio' && e.isIntersecting
             );
@@ -44,7 +44,6 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
         );
 
         if (visibleEntries.length > 0) {
-          // Sort by intersection ratio to pick the most prominent
           visibleEntries.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
           setActiveTarget(visibleEntries[0].target.id);
         }
@@ -81,25 +80,30 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
       {/* Background Grid & Radar Overlay */}
       <div className="absolute inset-0 bg-tech-grid opacity-30 pointer-events-none" />
 
-      {/* Hero Background Composite Imagery */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden select-none">
+      {/* Hero Background Composite Imagery with calm entry */}
+      <motion.div
+        initial={{ opacity: 0, scale: 1.03 }}
+        animate={{ opacity: 0.4, scale: 1 }}
+        transition={{ duration: 1.2, ease: EASE_SMOOTH }}
+        className="absolute inset-0 pointer-events-none overflow-hidden select-none"
+      >
         <img
           src={heroBgImage}
           alt="Composição João Cainã"
-          className="w-full h-full object-cover object-center opacity-40 mix-blend-screen scale-105 transition-transform duration-1000"
+          className="w-full h-full object-cover object-center mix-blend-screen"
           referrerPolicy="no-referrer"
         />
         {/* Subtle Dark Vignette & Gradients to guarantee 100% text legibility */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#06090B] via-[#06090B]/85 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#06090B] via-transparent to-[#06090B]/60" />
-      </div>
+      </motion.div>
 
       {/* Main Hero Container */}
       <div className="relative max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 w-full my-auto py-8 sm:py-12 z-10">
         
         {/* Horizontal Golden Axis Line Connecting to Right Navigation */}
         <div
-          className={`hidden lg:block absolute left-0 right-20 top-[50%] h-[1px] bg-gradient-to-r from-transparent via-[#E5AD08]/60 to-[#E5AD08] pointer-events-none z-20 transition-all duration-300 ${
+          className={`hidden lg:block absolute left-0 right-20 top-[50%] h-[1px] bg-gradient-to-r from-transparent via-[#E5AD08]/60 to-[#E5AD08] pointer-events-none z-20 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
             hoveredTarget
               ? 'opacity-100 shadow-[0_0_8px_rgba(229,173,8,0.6),0_0_20px_rgba(229,173,8,0.15)] via-[#E5AD08]/90'
               : 'opacity-70'
@@ -109,61 +113,93 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* Left Column: Hero Typography & Identity (7 Columns) */}
-          <div className="lg:col-span-7 flex flex-col justify-center relative z-20">
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.85, ease: EASE_SMOOTH }}
+            className="lg:col-span-7 flex flex-col justify-center relative z-20"
+          >
             
             {/* Top Label */}
-            <div className="mb-4">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1, ease: EASE_SMOOTH }}
+              className="mb-4"
+            >
               <span className="text-[11px] font-mono text-[#737C85] tracking-[0.25em] uppercase">
                 PORTFÓLIO PESSOAL
               </span>
-            </div>
+            </motion.div>
 
             {/* Massive Bold Title */}
-            <h1 className="font-condensed text-[84px] sm:text-[120px] md:text-[145px] lg:text-[160px] leading-[0.82] tracking-tighter uppercase font-bold text-[#F4F4F1] select-none mb-6">
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.15, ease: EASE_SMOOTH }}
+              className="font-condensed text-[84px] sm:text-[120px] md:text-[145px] lg:text-[160px] leading-[0.82] tracking-tighter uppercase font-bold text-[#F4F4F1] select-none mb-6"
+            >
               JOÃO<br />
               CAINÃ
-            </h1>
+            </motion.h1>
 
             {/* Sub-headline */}
-            <div className="space-y-1 mb-5">
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.75, delay: 0.25, ease: EASE_SMOOTH }}
+              className="space-y-1 mb-5"
+            >
               <p className="font-condensed text-2xl sm:text-3xl font-bold tracking-tight text-[#F4F4F1] uppercase">
                 EXPERIÊNCIAS DIFERENTES.
               </p>
               <p className="font-condensed text-2xl sm:text-3xl font-bold tracking-tight text-[#E5AD08] uppercase">
                 UMA MESMA FORMA DE PENSAR.
               </p>
-            </div>
+            </motion.div>
 
             {/* Narrative Description */}
-            <p className="text-[#B0B5BB] text-sm sm:text-base leading-relaxed max-w-lg mb-8 font-body">
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.35, ease: EASE_SMOOTH }}
+              className="text-[#B0B5BB] text-sm sm:text-base leading-relaxed max-w-lg mb-8 font-body"
+            >
               Militar, ex-jogador federado e entusiasta de tecnologia explorando Inteligência Artificial, dados e esporte para transformar ideias em projetos.
-            </p>
+            </motion.p>
 
-            {/* Action CTA Button */}
-            <div>
+            {/* Action CTA Button with subtle hover */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.45, ease: EASE_SMOOTH }}
+            >
               <button
                 onClick={onExploreClick}
                 id="hero-btn-conhecer"
-                className="border border-[#E5AD08] text-[#E5AD08] px-7 py-3.5 font-mono text-xs font-bold uppercase tracking-[0.16em] flex items-center gap-2 hover:bg-[#E5AD08] hover:text-[#06090B] transition-all duration-200 cursor-pointer shadow-[0_0_15px_rgba(229,173,8,0.2)] active:scale-95"
+                className="interactive-btn group border border-[#E5AD08] text-[#E5AD08] px-7 py-3.5 font-mono text-xs font-bold uppercase tracking-[0.16em] flex items-center gap-2 hover:bg-[#E5AD08] hover:text-[#06090B] cursor-pointer shadow-[0_0_15px_rgba(229,173,8,0.2)]"
               >
                 <span>CONHECER MINHA JORNADA</span>
-                <span className="text-sm font-sans">↗</span>
+                <span className="interactive-arrow text-sm font-sans">↗</span>
               </button>
-            </div>
+            </motion.div>
 
-          </div>
+          </motion.div>
 
           {/* Right Column: Visual Stage & Interactive Journey Navigation (5 Columns) */}
-          <div className="lg:col-span-5 flex items-center justify-end relative z-20">
-            
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.85, delay: 0.25, ease: EASE_SMOOTH }}
+            className="lg:col-span-5 flex items-center justify-end relative z-20"
+          >
             <JourneyNavigation
               activeTarget={activeTarget}
               onSelect={handleSelectJourneyTarget}
               hoveredTarget={hoveredTarget || null}
               setHoveredTarget={(t) => setHoveredTarget(t || '')}
             />
-
-          </div>
+          </motion.div>
 
         </div>
       </div>
@@ -172,7 +208,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
       <div className="relative max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 w-full flex items-center justify-between z-10">
         <button
           onClick={onExploreClick}
-          className="flex items-center gap-2 text-[10px] font-mono text-[#737C85] hover:text-[#E5AD08] transition-colors uppercase tracking-[0.2em] cursor-pointer"
+          className="flex items-center gap-2 text-[10px] font-mono text-[#737C85] hover:text-[#E5AD08] transition-colors duration-300 uppercase tracking-[0.2em] cursor-pointer"
         >
           <span>SCROLL</span>
           <div className="flex items-center gap-1">

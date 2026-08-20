@@ -1,12 +1,11 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import {
-  CircleDot,
   Dribbble,
   Award,
   Shield,
   Laptop,
   Crosshair,
-  Quote,
 } from 'lucide-react';
 
 import dunkImg from '../assets/images/dunk_action_shot_1787162440566.jpg';
@@ -14,6 +13,7 @@ import statsImg from '../assets/images/stats_scout_board_1787162454170.jpg';
 import soldierImg from '../assets/images/tactical_soldier_1787162467153.jpg';
 import techImg from '../assets/images/tech_neural_network_1787162482067.jpg';
 import brasiliaImg from '../assets/images/brasilia_cathedral_night_1787162498360.jpg';
+import { EASE_SMOOTH } from '../lib/motion';
 
 export const TrajectorySection: React.FC = () => {
   const steps = [
@@ -90,15 +90,21 @@ export const TrajectorySection: React.FC = () => {
   return (
     <section
       id="trajetoria"
-      className="py-20 sm:py-24 bg-[#06090B] border-b border-[rgba(255,255,255,0.10)] relative"
+      className="py-24 sm:py-32 bg-[#06090B] border-b border-[rgba(255,255,255,0.10)] relative overflow-hidden"
     >
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
         
         {/* Section Header */}
-        <div className="mb-14 sm:mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.8, ease: EASE_SMOOTH }}
+          className="mb-14 sm:mb-16"
+        >
           <div className="flex items-center gap-2 mb-2">
             <span className="font-mono text-xs text-[#E5AD08] tracking-widest uppercase font-bold">
-              02
+              02 — TRAJETÓRIA
             </span>
             <div className="w-8 h-[1px] bg-[#E5AD08]/60" />
           </div>
@@ -108,21 +114,36 @@ export const TrajectorySection: React.FC = () => {
           <p className="text-sm sm:text-base text-[#B0B5BB] font-body max-w-xl">
             Uma jornada entre esporte, disciplina, dados e tecnologia.
           </p>
-        </div>
+        </motion.div>
 
         {/* Timeline Rows */}
         <div className="relative space-y-6 sm:space-y-8">
           
-          {/* Vertical Golden Connecting Line */}
-          <div className="hidden md:block absolute left-[56px] top-6 bottom-6 w-[1px] bg-gradient-to-b from-[#E5AD08] via-[#E5AD08]/70 to-[#E5AD08]/30 pointer-events-none z-0" />
+          {/* Vertical Golden Connecting Line with Progressive Grow Animation */}
+          <motion.div
+            initial={{ scaleY: 0 }}
+            whileInView={{ scaleY: 1 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 1.2, ease: EASE_SMOOTH }}
+            style={{ transformOrigin: 'top' }}
+            className="hidden md:block absolute left-[56px] top-6 bottom-6 w-[1px] bg-gradient-to-b from-[#E5AD08] via-[#E5AD08]/70 to-[#E5AD08]/30 pointer-events-none z-0"
+          />
 
-          {steps.map((step) => {
+          {steps.map((step, idx) => {
             const IconComponent = step.icon;
             return (
-              <div
+              <motion.div
                 key={step.number}
                 id={step.id}
-                className="relative bg-[#0C1014] border border-[rgba(255,255,255,0.10)] hover:border-[#E5AD08]/70 transition-all duration-300 p-5 sm:p-6 lg:p-7 group z-10 scroll-mt-24"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{
+                  duration: 0.7,
+                  delay: idx * 0.08,
+                  ease: EASE_SMOOTH,
+                }}
+                className="interactive-card relative bg-[#0C1014] border border-[rgba(255,255,255,0.10)] hover:border-[#E5AD08]/70 p-5 sm:p-6 lg:p-7 group z-10 scroll-mt-24"
               >
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 items-center">
                   
@@ -133,7 +154,7 @@ export const TrajectorySection: React.FC = () => {
                       <span className="font-mono text-sm font-bold text-[#E5AD08]">
                         {step.number}
                       </span>
-                      <div className="w-10 h-10 rounded-full border border-[#E5AD08] bg-[#06090B] flex items-center justify-center text-[#E5AD08] shadow-[0_0_10px_rgba(229,173,8,0.2)] group-hover:scale-105 transition-transform">
+                      <div className="w-10 h-10 rounded-full border border-[#E5AD08] bg-[#06090B] flex items-center justify-center text-[#E5AD08] shadow-[0_0_10px_rgba(229,173,8,0.2)] group-hover:scale-105 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]">
                         <IconComponent className="w-4 h-4" />
                       </div>
                     </div>
@@ -145,7 +166,7 @@ export const TrajectorySection: React.FC = () => {
                           {step.period}
                         </span>
                       )}
-                      <h3 className="font-condensed text-2xl sm:text-3xl font-bold uppercase tracking-tight text-[#F4F4F1] mb-2 group-hover:text-[#E5AD08] transition-colors">
+                      <h3 className="font-condensed text-2xl sm:text-3xl font-bold uppercase tracking-tight text-[#F4F4F1] mb-2 group-hover:text-[#E5AD08] transition-colors duration-300">
                         {step.title}
                       </h3>
                       <p className="text-xs sm:text-sm text-[#B0B5BB] leading-relaxed font-body">
@@ -168,7 +189,7 @@ export const TrajectorySection: React.FC = () => {
                     <img
                       src={step.image}
                       alt={step.title}
-                      className="w-full h-full object-cover object-center opacity-75 group-hover:opacity-95 group-hover:scale-105 transition-all duration-500"
+                      className="w-full h-full object-cover object-center opacity-75 group-hover:opacity-95 group-hover:scale-103 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
                       referrerPolicy="no-referrer"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0C1014] via-transparent to-transparent opacity-60" />
@@ -176,10 +197,10 @@ export const TrajectorySection: React.FC = () => {
 
                   {/* Right Column: Key Takeaway Labels (3 cols) */}
                   <div className="md:col-span-3 flex flex-col justify-center space-y-1.5 border-l-0 md:border-l border-[rgba(255,255,255,0.10)] md:pl-6 text-[10px] sm:text-[11px] font-mono tracking-wider text-[#737C85]">
-                    {step.tags.map((tag, idx) => (
-                      <div key={idx} className="flex items-center gap-2">
+                    {step.tags.map((tag, i) => (
+                      <div key={i} className="flex items-center gap-2">
                         <span className="text-[#E5AD08]">•</span>
-                        <span className="group-hover:text-[#F4F4F1] transition-colors">
+                        <span className="group-hover:text-[#F4F4F1] transition-colors duration-300">
                           {tag}
                         </span>
                       </div>
@@ -187,14 +208,20 @@ export const TrajectorySection: React.FC = () => {
                   </div>
 
                 </div>
-              </div>
+              </motion.div>
             );
           })}
 
         </div>
 
         {/* Bottom Banner Quote & Progress Bar */}
-        <div className="mt-8 p-4 sm:p-5 bg-[#0C1014] border border-[rgba(255,255,255,0.10)] flex flex-col sm:flex-row items-center justify-between gap-4">
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.7, delay: 0.2, ease: EASE_SMOOTH }}
+          className="mt-8 p-4 sm:p-5 bg-[#0C1014] border border-[rgba(255,255,255,0.10)] flex flex-col sm:flex-row items-center justify-between gap-4"
+        >
           <div className="flex items-center gap-3">
             <span className="font-mono text-xl text-[#E5AD08] font-bold">“</span>
             <p className="text-xs sm:text-sm text-[#F4F4F1] font-body italic">
@@ -209,7 +236,7 @@ export const TrajectorySection: React.FC = () => {
             </div>
             <span className="font-bold">60%</span>
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </section>

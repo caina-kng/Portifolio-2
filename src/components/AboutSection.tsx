@@ -1,5 +1,7 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import cathedralImage from '../assets/images/brasilia_cathedral_night_1787162498360.jpg';
+import { EASE_SMOOTH } from '../lib/motion';
 
 export const AboutSection: React.FC = () => {
   const coreValues = [
@@ -157,7 +159,13 @@ export const AboutSection: React.FC = () => {
       <div className="max-w-[1640px] mx-auto px-5 sm:px-10 lg:px-16 relative z-10 w-full">
         
         {/* Section Header with Horizontal Line */}
-        <div className="mb-14 sm:mb-18">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.8, ease: EASE_SMOOTH }}
+          className="mb-14 sm:mb-18"
+        >
           <div className="flex items-center gap-3 mb-4">
             <span className="font-mono text-xs sm:text-sm text-[#E5AD08] tracking-[0.25em] uppercase font-bold">
               06 — SOBRE MIM
@@ -178,13 +186,19 @@ export const AboutSection: React.FC = () => {
           <p className="font-mono text-xs sm:text-sm md:text-base text-[#84909D] tracking-[0.2em] uppercase font-medium">
             EXPERIÊNCIAS QUE CONSTROEM QUEM EU SOU.
           </p>
-        </div>
+        </motion.div>
 
         {/* ─── 3-COLUMN MAIN COMPOSITION ─── */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-stretch mb-16">
           
           {/* ─── COLUMN 1: BIOGRAFIA & QUOTE (approx. 43% width = 5 cols lg / 5 cols xl) ─── */}
-          <div className="lg:col-span-5 flex flex-col justify-between space-y-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.8, ease: EASE_SMOOTH }}
+            className="lg:col-span-5 flex flex-col justify-between space-y-8"
+          >
             
             {/* Paragraphs with generous font-size and line-height */}
             <div className="space-y-6 text-[16px] sm:text-[17.5px] lg:text-[18.5px] text-[#B0B5BB] leading-[1.72] font-body">
@@ -223,17 +237,25 @@ export const AboutSection: React.FC = () => {
               </p>
             </div>
 
-          </div>
+          </motion.div>
 
           {/* ─── COLUMN 2: PRINCÍPIOS (approx. 22% width = 3 cols lg / 3 cols xl) ─── */}
           <div className="lg:col-span-3 flex flex-col justify-between py-2 space-y-6 lg:space-y-0">
-            {coreValues.map((val) => (
-              <div
+            {coreValues.map((val, idx) => (
+              <motion.div
                 key={val.title}
-                className="flex items-start gap-4 group transition-transform duration-200 hover:translate-x-1"
+                initial={{ opacity: 0, x: -15 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{
+                  duration: 0.65,
+                  delay: idx * 0.08,
+                  ease: EASE_SMOOTH,
+                }}
+                className="flex items-start gap-4 group transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:translate-x-1"
               >
                 {/* Large Golden Circular Icon */}
-                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-[#E5AD08] bg-[#0C1014] flex items-center justify-center text-[#E5AD08] flex-shrink-0 shadow-[0_0_12px_rgba(229,173,8,0.22)] group-hover:scale-105 group-hover:border-[#F5BD18] transition-all">
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-[#E5AD08] bg-[#0C1014] flex items-center justify-center text-[#E5AD08] flex-shrink-0 shadow-[0_0_12px_rgba(229,173,8,0.22)] group-hover:scale-105 group-hover:border-[#F5BD18] transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]">
                   {val.icon}
                 </div>
 
@@ -246,12 +268,18 @@ export const AboutSection: React.FC = () => {
                     {val.text}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
 
           {/* ─── COLUMN 3: CATEDRAL DOMINANTE & MENTALIDADE (approx. 35% width = 4 cols lg / 4 cols xl) ─── */}
-          <div className="lg:col-span-4 relative flex flex-col justify-center min-h-[520px] lg:min-h-[640px]">
+          <motion.div
+            initial={{ opacity: 0, scale: 1.02 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.95, ease: EASE_SMOOTH }}
+            className="lg:col-span-4 relative flex flex-col justify-center min-h-[520px] lg:min-h-[640px]"
+          >
             
             {/* Cinematic Cathedral Container */}
             <div className="relative w-full h-full min-h-[520px] lg:min-h-[640px] border border-[rgba(255,255,255,0.12)] bg-[#080B0E] overflow-hidden group shadow-2xl">
@@ -260,7 +288,7 @@ export const AboutSection: React.FC = () => {
               <img
                 src={cathedralImage}
                 alt="Catedral Metropolitana de Brasília — Símbolo de Visão e Construção"
-                className="w-full h-full object-cover object-center opacity-85 group-hover:opacity-95 group-hover:scale-103 transition-all duration-700 select-none"
+                className="w-full h-full object-cover object-center opacity-85 group-hover:opacity-95 group-hover:scale-103 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] select-none"
                 referrerPolicy="no-referrer"
               />
 
@@ -272,14 +300,14 @@ export const AboutSection: React.FC = () => {
               <div className="absolute inset-0 bg-tech-grid opacity-15 pointer-events-none" />
 
               {/* Floating MENTALIDADE Card */}
-              <div className="absolute top-8 right-6 bg-[#06090B]/92 border border-[rgba(255,255,255,0.15)] p-4 sm:p-5 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-[#B0B5BB] space-y-2 backdrop-blur-md shadow-2xl">
+              <div className="absolute top-8 right-6 bg-[#06090B]/92 border border-[rgba(255,255,255,0.15)] p-4 sm:p-5 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-[#B0B5BB] space-y-2 backdrop-blur-md shadow-2xl transition-transform duration-300 hover:-translate-y-1">
                 <span className="text-[#E5AD08] font-bold block pb-1.5 border-b border-[rgba(255,255,255,0.12)]">
                   MENTALIDADE
                 </span>
-                <div className="hover:text-[#F4F4F1] transition-colors">— DISCIPLINA</div>
-                <div className="hover:text-[#F4F4F1] transition-colors">— ESTRATÉGIA</div>
-                <div className="hover:text-[#F4F4F1] transition-colors">— CONSISTÊNCIA</div>
-                <div className="hover:text-[#F4F4F1] transition-colors">— EVOLUÇÃO</div>
+                <div className="hover:text-[#F4F4F1] transition-colors duration-200">— DISCIPLINA</div>
+                <div className="hover:text-[#F4F4F1] transition-colors duration-200">— ESTRATÉGIA</div>
+                <div className="hover:text-[#F4F4F1] transition-colors duration-200">— CONSISTÊNCIA</div>
+                <div className="hover:text-[#F4F4F1] transition-colors duration-200">— EVOLUÇÃO</div>
               </div>
 
               {/* Subtle Bottom Right Radar Mark */}
@@ -289,12 +317,18 @@ export const AboutSection: React.FC = () => {
 
             </div>
 
-          </div>
+          </motion.div>
 
         </div>
 
         {/* ─── TIMELINE INFERIOR (Ampla, 4 Colunas com Divisores Verticais) ─── */}
-        <div className="bg-[#080B0E] border border-[rgba(255,255,255,0.10)] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 shadow-xl">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.8, delay: 0.1, ease: EASE_SMOOTH }}
+          className="bg-[#080B0E] border border-[rgba(255,255,255,0.10)] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 shadow-xl"
+        >
           {milestones.map((m, idx) => (
             <div
               key={m.period}
@@ -302,7 +336,7 @@ export const AboutSection: React.FC = () => {
                 idx < milestones.length - 1
                   ? 'border-b sm:border-b-0 lg:border-r border-[rgba(255,255,255,0.10)]'
                   : ''
-              } hover:bg-[#0C1014] transition-colors`}
+              } hover:bg-[#0C1014] transition-colors duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]`}
             >
               <span className="font-mono text-xl sm:text-2xl lg:text-[26px] font-bold text-[#E5AD08] tracking-wider block mb-1">
                 {m.period}
@@ -317,7 +351,7 @@ export const AboutSection: React.FC = () => {
               )}
             </div>
           ))}
-        </div>
+        </motion.div>
 
         {/* ─── FOOTER TÉCNICO DA SEÇÃO ─── */}
         <div className="mt-12 pt-6 border-t border-[rgba(255,255,255,0.08)] flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[11px] text-[#737C85] tracking-[0.2em] uppercase">

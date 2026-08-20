@@ -1,129 +1,119 @@
 /**
- * Central motion configurations for smooth, 60fps cinematic transitions.
- * Standardized easing: [0.22, 1, 0.36, 1]
+ * Centralized motion tokens and easing curves for 60FPS fluid animations.
+ * Curated for a calm, continuous, cinematic feel.
  */
 
-export const SMOOTH_EASE = [0.22, 1, 0.36, 1] as const;
+export const EASE_SMOOTH: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
-export const smoothTransition = {
-  duration: 0.8,
-  ease: SMOOTH_EASE,
-};
-
-export const microTransition = {
-  duration: 0.3,
-  ease: SMOOTH_EASE,
-};
-
-export const standardTransition = {
-  duration: 0.6,
-  ease: SMOOTH_EASE,
-};
-
-// Section Viewport Trigger config (triggers once smoothly)
-export const viewportOnce = {
-  once: true,
-  amount: 0.15,
-};
-
-// Container with progressive stagger
-export const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.09,
-      delayChildren: 0.1,
-    },
+export const MOTION_TRANSITIONS = {
+  section: {
+    duration: 0.85,
+    ease: EASE_SMOOTH,
+  },
+  title: {
+    duration: 0.8,
+    ease: EASE_SMOOTH,
+  },
+  text: {
+    duration: 0.7,
+    delay: 0.12,
+    ease: EASE_SMOOTH,
+  },
+  card: {
+    duration: 0.65,
+    ease: EASE_SMOOTH,
+  },
+  image: {
+    duration: 1.0,
+    ease: EASE_SMOOTH,
+  },
+  micro: {
+    duration: 0.3,
+    ease: EASE_SMOOTH,
+  },
+  radar: {
+    duration: 0.5,
+    ease: EASE_SMOOTH,
   },
 };
 
-// Fast card stagger
-export const cardStaggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0.15,
+export const MOTION_VARIANTS = {
+  // Section container reveal
+  sectionContainer: {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.85,
+        ease: EASE_SMOOTH,
+      },
     },
   },
-};
 
-// Section Header / Title Reveal
-export const titleRise = {
-  hidden: { opacity: 0, y: 25 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.8,
-      ease: SMOOTH_EASE,
+  // Titles (JOÃO CAINÃ, MINHA TRAJETÓRIA, etc.)
+  title: {
+    hidden: { opacity: 0, y: 25 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: EASE_SMOOTH,
+      },
     },
   },
-};
 
-// Paragraph / Subtitle Reveal
-export const textRise = {
-  hidden: { opacity: 0, y: 12 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.7,
-      ease: SMOOTH_EASE,
+  // Subtitle / Narrative text
+  text: {
+    hidden: { opacity: 0, y: 12 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+        delay: 0.12,
+        ease: EASE_SMOOTH,
+      },
     },
   },
-};
 
-// General Section Block Fade & Rise
-export const fadeInRise = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.85,
-      ease: SMOOTH_EASE,
+  // Staggered card generator
+  cardItem: (index: number = 0) => ({
+    hidden: { opacity: 0, y: 18 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.65,
+        delay: index * 0.08,
+        ease: EASE_SMOOTH,
+      },
+    },
+  }),
+
+  // Subtle image reveal (opacity 0->1, scale 1.02->1)
+  image: {
+    hidden: { opacity: 0, scale: 1.02 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 1.0,
+        ease: EASE_SMOOTH,
+      },
     },
   },
-};
 
-// Card Entry Variant
-export const cardVariant = {
-  hidden: { opacity: 0, y: 18 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.65,
-      ease: SMOOTH_EASE,
-    },
-  },
-};
-
-// Subtle Image Reveal
-export const imageReveal = {
-  hidden: { opacity: 0, scale: 1.02 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duration: 1.0,
-      ease: SMOOTH_EASE,
-    },
-  },
-};
-
-// Timeline Step Reveal
-export const timelineStepVariant = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.75,
-      ease: SMOOTH_EASE,
+  // Progressive timeline vertical line reveal
+  timelineLine: {
+    hidden: { scaleY: 0, originY: 0 },
+    visible: {
+      scaleY: 1,
+      transition: {
+        duration: 1.2,
+        ease: EASE_SMOOTH,
+      },
     },
   },
 };

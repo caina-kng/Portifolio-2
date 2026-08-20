@@ -17,28 +17,32 @@ import { CustomCursor } from './components/CustomCursor';
 export default function App() {
   const [activeSection, setActiveSection] = useState<string>('inicio');
 
+  // Lightweight 60FPS scroll spy using IntersectionObserver instead of heavy scroll listener
   useEffect(() => {
     const sections = ['inicio', 'trajetoria', 'projetos', 'habilidades', 'sobre', 'contato'];
+    const elements = sections
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
 
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + 200;
-
-      for (const sectionId of sections) {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          const top = element.offsetTop;
-          const height = element.offsetHeight;
-
-          if (scrollPosition >= top && scrollPosition < top + height) {
-            setActiveSection(sectionId);
-            break;
-          }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntries = entries.filter((entry) => entry.isIntersecting);
+        if (visibleEntries.length > 0) {
+          // Select the entry with greatest intersection visibility
+          visibleEntries.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+          setActiveSection(visibleEntries[0].target.id);
         }
+      },
+      {
+        root: null,
+        rootMargin: '-20% 0px -30% 0px',
+        threshold: [0.1, 0.25, 0.5, 0.75],
       }
-    };
+    );
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    elements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
   }, []);
 
   const scrollToSection = (id: string) => {
@@ -59,7 +63,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#06090B] text-[#F4F4F1] selection:bg-[#E5AD08] selection:text-[#06090B]">
-      {/* Desktop Custom Cursor */}
+      {/* Desktop Custom Cursor with 60FPS lerp */}
       <CustomCursor />
 
       {/* Fixed Header */}

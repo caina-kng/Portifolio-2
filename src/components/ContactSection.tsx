@@ -1,13 +1,14 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import {
   Github,
   Linkedin,
   Instagram,
   MapPin,
-  ArrowUpRight,
   Crosshair,
   Radio,
 } from 'lucide-react';
+import { EASE_SMOOTH } from '../lib/motion';
 
 export const ContactSection: React.FC = () => {
   const contactChannels = [
@@ -53,7 +54,7 @@ export const ContactSection: React.FC = () => {
       {/* Background Subtle Radar Concentric Rings & Tech Grid */}
       <div className="absolute inset-0 bg-tech-grid opacity-15 pointer-events-none" />
       
-      {/* Concentric Radar Graphics centered behind the section */}
+      {/* Concentric Radar Graphics centered behind the section with gentle fade */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[840px] h-[840px] pointer-events-none opacity-20 select-none">
         <div className="absolute inset-0 rounded-full border border-[#E5AD08]/40" />
         <div className="absolute inset-20 rounded-full border border-[#E5AD08]/30 border-dashed" />
@@ -66,7 +67,13 @@ export const ContactSection: React.FC = () => {
       <div className="max-w-[1640px] mx-auto px-5 sm:px-10 lg:px-16 relative z-10 w-full">
         
         {/* Section Label */}
-        <div className="flex items-center gap-3 mb-8">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.8, ease: EASE_SMOOTH }}
+          className="flex items-center gap-3 mb-8"
+        >
           <span className="font-mono text-xs sm:text-sm text-[#E5AD08] tracking-[0.25em] uppercase font-bold">
             07 — CONTATO
           </span>
@@ -75,13 +82,19 @@ export const ContactSection: React.FC = () => {
               &gt;
             </span>
           </div>
-        </div>
+        </motion.div>
 
         {/* 2-Column Editorial & Channels Composition */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start mb-20">
           
           {/* ─── LEFT COLUMN: EDITORIAL STATEMENT & NARRATIVE (approx. 50% = 6 cols) ─── */}
-          <div className="lg:col-span-6 flex flex-col justify-between space-y-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.8, ease: EASE_SMOOTH }}
+            className="lg:col-span-6 flex flex-col justify-between space-y-8"
+          >
             <div>
               {/* Massive Editorial Headline */}
               <h2 className="font-condensed text-[64px] sm:text-[84px] md:text-[96px] lg:text-[108px] leading-[0.88] tracking-tighter uppercase font-bold text-[#F4F4F1] select-none mb-6">
@@ -123,65 +136,94 @@ export const ContactSection: React.FC = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* ─── RIGHT COLUMN: 4 EXPANDED CONTACT CARDS (approx. 50% = 6 cols) ─── */}
           <div className="lg:col-span-6 space-y-4">
-            {contactChannels.map((channel) => {
+            {contactChannels.map((channel, idx) => {
               const IconComponent = channel.icon;
               const isClickable = !!channel.url;
-              const Component = isClickable ? 'a' : 'div';
-              const componentProps = isClickable
-                ? {
-                    href: channel.url!,
-                    target: '_blank',
-                    rel: 'noopener noreferrer',
-                    className:
-                      'bg-[#080B0E] border border-[rgba(255,255,255,0.10)] hover:border-[#E5AD08] hover:bg-[#0C1014] p-5 sm:p-6 flex items-center justify-between transition-all duration-300 group cursor-pointer shadow-lg hover:shadow-[0_0_20px_rgba(229,173,8,0.12)]',
-                  }
-                : {
-                    className:
-                      'bg-[#080B0E] border border-[rgba(255,255,255,0.10)] p-5 sm:p-6 flex items-center justify-between select-none',
-                  };
 
               return (
-                <Component key={channel.title} {...(componentProps as any)}>
-                  <div className="flex items-center gap-4 sm:gap-5">
-                    {/* Index Number & Icon */}
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-none bg-[#10151A] border border-[rgba(255,255,255,0.10)] group-hover:border-[#E5AD08] flex items-center justify-center text-[#E5AD08] transition-colors flex-shrink-0">
-                      <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-300 group-hover:scale-110" />
-                    </div>
-
-                    {/* Channel Text Info */}
-                    <div className="space-y-0.5">
-                      <div className="flex items-center gap-2">
-                        <span className="font-mono text-xs font-bold text-[#E5AD08] tracking-widest">
-                          {channel.number}
-                        </span>
-                        <span className="text-[10px] font-mono text-[#737C85] uppercase tracking-wider">
-                          // {channel.subtitle}
-                        </span>
-                      </div>
-                      <h3 className="font-condensed text-xl sm:text-2xl font-bold uppercase tracking-tight text-[#F4F4F1] group-hover:text-white transition-colors">
-                        {channel.title}
-                      </h3>
-                      <p className="font-mono text-xs sm:text-sm text-[#737C85] group-hover:text-[#B0B5BB] transition-colors">
-                        {channel.handle}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* External Link Arrow Indicator */}
+                <motion.div
+                  key={channel.title}
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  transition={{
+                    duration: 0.65,
+                    delay: idx * 0.08,
+                    ease: EASE_SMOOTH,
+                  }}
+                >
                   {isClickable ? (
-                    <div className="w-10 h-10 border border-[rgba(255,255,255,0.10)] group-hover:border-[#E5AD08] bg-[#10151A] flex items-center justify-center text-[#737C85] group-hover:text-[#E5AD08] transition-all flex-shrink-0">
-                      <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                    </div>
+                    <a
+                      href={channel.url!}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="interactive-card bg-[#080B0E] border border-[rgba(255,255,255,0.10)] hover:border-[#E5AD08] hover:bg-[#0C1014] p-5 sm:p-6 flex items-center justify-between group cursor-pointer shadow-lg hover:shadow-[0_0_20px_rgba(229,173,8,0.12)]"
+                    >
+                      <div className="flex items-center gap-4 sm:gap-5">
+                        {/* Index Number & Icon */}
+                        <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-none bg-[#10151A] border border-[rgba(255,255,255,0.10)] group-hover:border-[#E5AD08] flex items-center justify-center text-[#E5AD08] transition-colors duration-300 flex-shrink-0">
+                          <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105" />
+                        </div>
+
+                        {/* Channel Text Info */}
+                        <div className="space-y-0.5">
+                          <div className="flex items-center gap-2">
+                            <span className="font-mono text-xs font-bold text-[#E5AD08] tracking-widest">
+                              {channel.number}
+                            </span>
+                            <span className="text-[10px] font-mono text-[#737C85] uppercase tracking-wider">
+                              // {channel.subtitle}
+                            </span>
+                          </div>
+                          <h3 className="font-condensed text-xl sm:text-2xl font-bold uppercase tracking-tight text-[#F4F4F1] group-hover:text-white transition-colors duration-300">
+                            {channel.title}
+                          </h3>
+                          <p className="font-mono text-xs sm:text-sm text-[#737C85] group-hover:text-[#B0B5BB] transition-colors duration-300">
+                            {channel.handle}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* External Link Arrow Indicator */}
+                      <div className="w-10 h-10 border border-[rgba(255,255,255,0.10)] group-hover:border-[#E5AD08] bg-[#10151A] flex items-center justify-center text-[#737C85] group-hover:text-[#E5AD08] transition-all duration-300 flex-shrink-0">
+                        <span className="interactive-arrow text-base font-sans">↗</span>
+                      </div>
+                    </a>
                   ) : (
-                    <div className="px-2.5 py-1 border border-[rgba(255,255,255,0.08)] bg-[#10151A] font-mono text-[9px] text-[#737C85] uppercase tracking-widest">
-                      FIXO
+                    <div className="bg-[#080B0E] border border-[rgba(255,255,255,0.10)] p-5 sm:p-6 flex items-center justify-between select-none">
+                      <div className="flex items-center gap-4 sm:gap-5">
+                        <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-none bg-[#10151A] border border-[rgba(255,255,255,0.10)] flex items-center justify-center text-[#E5AD08] flex-shrink-0">
+                          <IconComponent className="w-5 h-5 sm:w-6 sm:h-6" />
+                        </div>
+
+                        <div className="space-y-0.5">
+                          <div className="flex items-center gap-2">
+                            <span className="font-mono text-xs font-bold text-[#E5AD08] tracking-widest">
+                              {channel.number}
+                            </span>
+                            <span className="text-[10px] font-mono text-[#737C85] uppercase tracking-wider">
+                              // {channel.subtitle}
+                            </span>
+                          </div>
+                          <h3 className="font-condensed text-xl sm:text-2xl font-bold uppercase tracking-tight text-[#F4F4F1]">
+                            {channel.title}
+                          </h3>
+                          <p className="font-mono text-xs sm:text-sm text-[#737C85]">
+                            {channel.handle}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="px-2.5 py-1 border border-[rgba(255,255,255,0.08)] bg-[#10151A] font-mono text-[9px] text-[#737C85] uppercase tracking-widest">
+                        FIXO
+                      </div>
                     </div>
                   )}
-                </Component>
+                </motion.div>
               );
             })}
           </div>

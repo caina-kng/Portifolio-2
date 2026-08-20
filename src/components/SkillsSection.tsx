@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import {
   Sparkles,
   GitBranch,
@@ -6,9 +7,9 @@ import {
   MessageSquareCode,
   PenTool,
   Github,
-  ArrowUpRight,
   Crosshair,
 } from 'lucide-react';
+import { EASE_SMOOTH } from '../lib/motion';
 
 export const SkillsSection: React.FC = () => {
   const competencies = [
@@ -76,12 +77,18 @@ export const SkillsSection: React.FC = () => {
   return (
     <section
       id="habilidades"
-      className="py-20 sm:py-24 bg-[#06090B] border-b border-[rgba(255,255,255,0.10)] relative"
+      className="py-24 sm:py-32 bg-[#06090B] border-b border-[rgba(255,255,255,0.10)] relative overflow-hidden"
     >
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
         
         {/* Section Header */}
-        <div className="mb-14 sm:mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.8, ease: EASE_SMOOTH }}
+          className="mb-14 sm:mb-16"
+        >
           <div className="flex items-center gap-2 mb-2">
             <span className="font-mono text-xs text-[#E5AD08] tracking-widest uppercase font-bold">
               04 — HABILIDADES
@@ -94,24 +101,38 @@ export const SkillsSection: React.FC = () => {
           <p className="text-sm sm:text-base text-[#B0B5BB] font-body max-w-xl">
             Conhecimentos e ferramentas que utilizo atualmente para criar, explorar e construir soluções.
           </p>
-        </div>
+        </motion.div>
 
         {/* 1. COMPETÊNCIAS (5 Vertical Cards) */}
         <div className="mb-14">
-          <div className="flex items-center gap-3 mb-6">
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.6, ease: EASE_SMOOTH }}
+            className="flex items-center gap-3 mb-6"
+          >
             <span className="font-mono text-xs text-[#E5AD08] font-bold tracking-widest uppercase">
               COMPETÊNCIAS
             </span>
             <div className="w-12 h-[1px] bg-[#E5AD08]/50" />
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-            {competencies.map((item) => {
+            {competencies.map((item, idx) => {
               const IconComp = item.icon;
               return (
-                <div
+                <motion.div
                   key={item.number}
-                  className="bg-[#0C1014] border border-[rgba(255,255,255,0.10)] hover:border-[#E5AD08] p-5 flex flex-col justify-between transition-all duration-300 group"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  transition={{
+                    duration: 0.65,
+                    delay: idx * 0.07,
+                    ease: EASE_SMOOTH,
+                  }}
+                  className="interactive-card bg-[#0C1014] border border-[rgba(255,255,255,0.10)] hover:border-[#E5AD08] p-5 flex flex-col justify-between group"
                 >
                   <div>
                     {/* Number + Circular Icon */}
@@ -119,13 +140,13 @@ export const SkillsSection: React.FC = () => {
                       <span className="font-mono text-xs text-[#E5AD08] font-bold">
                         {item.number}
                       </span>
-                      <div className="w-9 h-9 rounded-full border border-[#E5AD08]/60 bg-[#10151A] flex items-center justify-center text-[#E5AD08] group-hover:border-[#E5AD08] group-hover:scale-105 transition-all">
+                      <div className="w-9 h-9 rounded-full border border-[#E5AD08]/60 bg-[#10151A] flex items-center justify-center text-[#E5AD08] group-hover:border-[#E5AD08] group-hover:scale-105 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]">
                         <IconComp className="w-4 h-4" />
                       </div>
                     </div>
 
                     {/* Title */}
-                    <h3 className="font-condensed text-lg sm:text-xl font-bold uppercase tracking-tight text-[#F4F4F1] mb-2 group-hover:text-[#E5AD08] transition-colors">
+                    <h3 className="font-condensed text-lg sm:text-xl font-bold uppercase tracking-tight text-[#F4F4F1] mb-2 group-hover:text-[#E5AD08] transition-colors duration-300">
                       {item.title}
                     </h3>
 
@@ -137,10 +158,10 @@ export const SkillsSection: React.FC = () => {
 
                   {/* Bottom Golden Line + Cross Accent */}
                   <div className="pt-6 mt-4 border-t border-[rgba(255,255,255,0.06)] flex items-center justify-between">
-                    <div className="w-8 h-[2px] bg-[#E5AD08] opacity-70 group-hover:w-12 transition-all" />
+                    <div className="w-8 h-[2px] bg-[#E5AD08] opacity-70 group-hover:w-12 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]" />
                     <span className="font-mono text-xs text-[#E5AD08]">+</span>
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </div>
@@ -148,7 +169,13 @@ export const SkillsSection: React.FC = () => {
 
         {/* 2. FERRAMENTAS QUE UTILIZO (3 Large Horizontal Cards) */}
         <div className="mb-12">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6">
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.6, ease: EASE_SMOOTH }}
+            className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6"
+          >
             <div className="flex items-center gap-3">
               <span className="font-mono text-xs text-[#E5AD08] font-bold tracking-widest uppercase">
                 FERRAMENTAS QUE UTILIZO
@@ -158,42 +185,56 @@ export const SkillsSection: React.FC = () => {
             <span className="font-mono text-[10px] text-[#737C85] tracking-widest uppercase">
               TECNOLOGIAS PRINCIPAIS DO MEU FLUXO DE TRABALHO
             </span>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {primaryTools.map((tool) => {
+            {primaryTools.map((tool, idx) => {
               const ToolIcon = tool.icon;
               return (
-                <a
+                <motion.a
                   key={tool.name}
                   href={tool.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[#0C1014] border border-[rgba(255,255,255,0.10)] hover:border-[#E5AD08] p-5 sm:p-6 transition-all duration-300 flex items-start gap-4 group cursor-pointer"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  transition={{
+                    duration: 0.65,
+                    delay: idx * 0.09,
+                    ease: EASE_SMOOTH,
+                  }}
+                  className="interactive-card bg-[#0C1014] border border-[rgba(255,255,255,0.10)] hover:border-[#E5AD08] p-5 sm:p-6 flex items-start gap-4 group cursor-pointer"
                 >
-                  <div className="w-12 h-12 rounded bg-[#10151A] border border-[rgba(255,255,255,0.12)] flex items-center justify-center text-[#E5AD08] flex-shrink-0 group-hover:border-[#E5AD08] transition-colors">
+                  <div className="w-12 h-12 rounded bg-[#10151A] border border-[rgba(255,255,255,0.12)] flex items-center justify-center text-[#E5AD08] flex-shrink-0 group-hover:border-[#E5AD08] transition-colors duration-300">
                     <ToolIcon className="w-6 h-6" />
                   </div>
 
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-2 mb-1">
-                      <h4 className="font-condensed text-lg sm:text-xl font-bold uppercase tracking-tight text-[#F4F4F1] group-hover:text-[#E5AD08] transition-colors truncate">
+                      <h4 className="font-condensed text-lg sm:text-xl font-bold uppercase tracking-tight text-[#F4F4F1] group-hover:text-[#E5AD08] transition-colors duration-300 truncate">
                         {tool.name}
                       </h4>
-                      <ArrowUpRight className="w-4 h-4 text-[#737C85] group-hover:text-[#E5AD08] transition-colors flex-shrink-0" />
+                      <span className="interactive-arrow text-sm font-sans text-[#737C85] group-hover:text-[#E5AD08]">↗</span>
                     </div>
                     <p className="text-xs text-[#B0B5BB] leading-relaxed font-body">
                       {tool.description}
                     </p>
                   </div>
-                </a>
+                </motion.a>
               );
             })}
           </div>
         </div>
 
         {/* 3. Bottom Quote & Core Philosophy Bar */}
-        <div className="p-4 sm:p-5 bg-[#0C1014] border border-[rgba(255,255,255,0.10)] flex flex-col sm:flex-row items-center justify-between gap-4">
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.7, delay: 0.15, ease: EASE_SMOOTH }}
+          className="p-4 sm:p-5 bg-[#0C1014] border border-[rgba(255,255,255,0.10)] flex flex-col sm:flex-row items-center justify-between gap-4"
+        >
           <div className="flex items-center gap-3">
             <span className="font-mono text-xl text-[#E5AD08] font-bold">“</span>
             <p className="text-xs sm:text-sm text-[#F4F4F1] font-body">
@@ -205,7 +246,7 @@ export const SkillsSection: React.FC = () => {
             <span>FOCO • APRENDIZADO • EXECUÇÃO</span>
             <Crosshair className="w-4 h-4 text-[#E5AD08]" />
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </section>
