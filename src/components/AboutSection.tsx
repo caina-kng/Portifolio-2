@@ -138,52 +138,52 @@ export const AboutSection: React.FC = () => {
   return (
     <section
       id="sobre"
-      className="py-24 sm:py-32 bg-[#06090B] border-b border-[rgba(255,255,255,0.10)] relative overflow-hidden"
+      className="py-24 sm:py-32 bg-[#0D0F12] border-b border-[rgba(255,255,255,0.08)] relative overflow-hidden"
     >
       {/* Background Technical Grid & Subtle Radar Overlays */}
       <div className="absolute inset-0 bg-tech-grid opacity-20 pointer-events-none" />
       
       {/* Faint Technical Crosshairs & Radar Coordinates */}
-      <div className="absolute top-20 right-1/3 text-[9px] font-mono text-[#E5AD08]/20 select-none pointer-events-none">
+      <div className="absolute top-20 right-1/3 text-[9px] font-mono text-[#D4A017]/20 select-none pointer-events-none">
         +
       </div>
-      <div className="absolute top-44 right-1/4 text-[9px] font-mono text-[#E5AD08]/20 select-none pointer-events-none">
+      <div className="absolute top-44 right-1/4 text-[9px] font-mono text-[#D4A017]/20 select-none pointer-events-none">
         +
       </div>
-      <div className="absolute bottom-32 left-1/3 text-[9px] font-mono text-[#E5AD08]/20 select-none pointer-events-none">
+      <div className="absolute bottom-32 left-1/3 text-[9px] font-mono text-[#D4A017]/20 select-none pointer-events-none">
         +
       </div>
-      <div className="absolute top-1/3 right-12 w-64 h-64 border border-[#E5AD08]/[0.04] rounded-full pointer-events-none" />
+      <div className="absolute top-1/3 right-12 w-64 h-64 border border-[#D4A017]/[0.04] rounded-full pointer-events-none" />
 
       {/* Main Wide Container (Scale 1600px) */}
       <div className="max-w-[1640px] mx-auto px-5 sm:px-10 lg:px-16 relative z-10 w-full">
         
         {/* Section Header with Horizontal Line */}
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.8, ease: EASE_SMOOTH }}
+          transition={{ duration: 0.75, ease: EASE_SMOOTH }}
           className="mb-14 sm:mb-18"
         >
           <div className="flex items-center gap-3 mb-4">
-            <span className="font-mono text-xs sm:text-sm text-[#E5AD08] tracking-[0.25em] uppercase font-bold">
+            <span className="font-mono text-xs sm:text-sm text-[#D4A017] tracking-[0.25em] uppercase font-bold">
               06 — SOBRE MIM
             </span>
-            <div className="w-24 sm:w-40 h-[1px] bg-gradient-to-r from-[#E5AD08]/70 via-[#E5AD08]/40 to-transparent relative">
-              <span className="absolute right-0 -top-[3px] text-[#E5AD08]/60 text-[8px] font-sans">
+            <div className="w-24 sm:w-40 h-[1px] bg-gradient-to-r from-[#D4A017]/70 via-[#D4A017]/40 to-transparent relative">
+              <span className="absolute right-0 -top-[3px] text-[#D4A017]/60 text-[8px] font-sans">
                 &gt;
               </span>
             </div>
           </div>
 
           {/* Massive Editorial Headline */}
-          <h2 className="font-condensed text-[68px] sm:text-[88px] md:text-[104px] lg:text-[118px] leading-[0.88] tracking-tighter uppercase font-bold text-[#F4F4F1] select-none mb-4">
+          <h2 className="font-condensed text-[68px] sm:text-[88px] md:text-[104px] lg:text-[118px] leading-[0.88] tracking-tighter uppercase font-bold text-[#F5F7FA] select-none mb-4">
             SOBRE MIM
           </h2>
 
           {/* Subtitle */}
-          <p className="font-mono text-xs sm:text-sm md:text-base text-[#84909D] tracking-[0.2em] uppercase font-medium">
+          <p className="font-mono text-xs sm:text-sm md:text-base text-[#7C8793] tracking-[0.2em] uppercase font-medium">
             EXPERIÊNCIAS QUE CONSTROEM QUEM EU SOU.
           </p>
         </motion.div>
@@ -193,36 +193,36 @@ export const AboutSection: React.FC = () => {
           
           {/* ─── COLUMN 1: BIOGRAFIA & QUOTE (approx. 43% width = 5 cols lg / 5 cols xl) ─── */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.8, ease: EASE_SMOOTH }}
+            transition={{ duration: 0.75, ease: EASE_SMOOTH }}
             className="lg:col-span-5 flex flex-col justify-between space-y-8"
           >
             
             {/* Paragraphs with generous font-size and line-height */}
             <div className="space-y-6 text-[16px] sm:text-[17.5px] lg:text-[18.5px] text-[#B0B5BB] leading-[1.72] font-body">
               <p>
-                Sou <strong className="text-[#E5AD08] font-bold">João Cainã</strong>, de Brasília, militar do Exército Brasileiro <strong className="text-[#F4F4F1] font-semibold">e ex-jogador federado de basquete</strong>.
+                Sou <strong className="text-[#D4A017] font-bold">João Cainã</strong>, de Brasília, militar do Exército Brasileiro <strong className="text-[#F5F7FA] font-semibold">e ex-jogador federado de basquete</strong>.
               </p>
               <p>
-                Minha trajetória começou dentro do esporte, mas foi através de um curso de <strong className="text-[#E5AD08] font-bold">Estatística de Basquete</strong> pela <strong className="text-[#E5AD08] font-bold">FBDF</strong> que comecei a enxergar novas possibilidades além da quadra.
+                Minha trajetória começou dentro do esporte, mas foi através de um curso de <strong className="text-[#D4A017] font-bold">Estatística de Basquete</strong> pela <strong className="text-[#D4A017] font-bold">FBDF</strong> que comecei a enxergar novas possibilidades além da quadra.
               </p>
               <p>
-                A partir daí, passei a me interessar cada vez mais por <strong className="text-[#E5AD08] font-bold">tecnologia, dados</strong> e <strong className="text-[#E5AD08] font-bold">Inteligência Artificial</strong>.
+                A partir daí, passei a me interessar cada vez mais por <strong className="text-[#D4A017] font-bold">tecnologia, dados</strong> e <strong className="text-[#D4A017] font-bold">Inteligência Artificial</strong>.
               </p>
               <p>
-                Hoje estou <strong className="text-[#E5AD08] font-bold">construindo projetos</strong> e ampliando meus conhecimentos com o objetivo de entender como essas ferramentas podem contribuir com atletas, treinadores e organizações esportivas.
+                Hoje estou <strong className="text-[#D4A017] font-bold">construindo projetos</strong> e ampliando meus conhecimentos com o objetivo de entender como essas ferramentas podem contribuir com atletas, treinadores e organizações esportivas.
               </p>
               <p>
-                No futuro, espero conseguir complementar essa experiência ainda mais dentro do basquete e, caso surja oportunidade, contribuir também com a <strong className="text-[#E5AD08] font-bold">FBDF</strong> utilizando tecnologia e inovação.
+                No futuro, espero conseguir complementar essa experiência ainda mais dentro do basquete e, caso surja oportunidade, contribuir também com a <strong className="text-[#D4A017] font-bold">FBDF</strong> utilizando tecnologia e inovação.
               </p>
             </div>
 
             {/* High-Impact Editorial Golden Quote Box */}
-            <div className="mt-4 p-7 sm:p-9 bg-[#080B0E] border border-[#E5AD08] relative flex items-start gap-6 shadow-[0_0_25px_rgba(229,173,8,0.12)] group">
+            <div className="mt-4 p-7 sm:p-9 bg-[#121519] border border-[#D4A017] relative flex items-start gap-6 shadow-[0_0_25px_rgba(212,160,23,0.12)] group">
               {/* Giant Stylized Quotation Mark */}
-              <div className="flex-shrink-0 text-[#E5AD08] select-none pt-1">
+              <div className="flex-shrink-0 text-[#D4A017] select-none pt-1">
                 <svg
                   className="w-10 h-10 lg:w-12 lg:h-12 fill-current"
                   viewBox="0 0 24 24"
@@ -232,7 +232,7 @@ export const AboutSection: React.FC = () => {
               </div>
 
               {/* Quote Text */}
-              <p className="text-[17px] sm:text-[19px] lg:text-[21px] text-[#F4F4F1] font-body font-medium leading-[1.45] my-auto">
+              <p className="text-[17px] sm:text-[19px] lg:text-[21px] text-[#F5F7FA] font-body font-medium leading-[1.45] my-auto">
                 Quero transformar minha experiência com o esporte em soluções para o próprio esporte.
               </p>
             </div>
@@ -244,24 +244,24 @@ export const AboutSection: React.FC = () => {
             {coreValues.map((val, idx) => (
               <motion.div
                 key={val.title}
-                initial={{ opacity: 0, x: -15 }}
+                initial={{ opacity: 0, x: -12 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{
-                  duration: 0.65,
-                  delay: idx * 0.08,
+                  duration: 0.6,
+                  delay: idx * 0.07,
                   ease: EASE_SMOOTH,
                 }}
                 className="flex items-start gap-4 group transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:translate-x-1"
               >
                 {/* Large Golden Circular Icon */}
-                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-[#E5AD08] bg-[#0C1014] flex items-center justify-center text-[#E5AD08] flex-shrink-0 shadow-[0_0_12px_rgba(229,173,8,0.22)] group-hover:scale-105 group-hover:border-[#F5BD18] transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]">
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-[#D4A017] bg-[#121519] flex items-center justify-center text-[#D4A017] flex-shrink-0 shadow-[0_0_12px_rgba(212,160,23,0.22)] group-hover:scale-105 group-hover:border-[#E5AD08] transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]">
                   {val.icon}
                 </div>
 
                 {/* Content */}
                 <div className="space-y-1 pt-0.5">
-                  <h4 className="font-mono text-xs sm:text-[13px] font-bold text-[#E5AD08] tracking-[0.2em] uppercase">
+                  <h4 className="font-mono text-xs sm:text-[13px] font-bold text-[#D4A017] tracking-[0.2em] uppercase">
                     {val.title}
                   </h4>
                   <p className="text-xs sm:text-[13.5px] text-[#B0B5BB] leading-snug font-body max-w-[240px]">
@@ -274,15 +274,15 @@ export const AboutSection: React.FC = () => {
 
           {/* ─── COLUMN 3: CATEDRAL DOMINANTE & MENTALIDADE (approx. 35% width = 4 cols lg / 4 cols xl) ─── */}
           <motion.div
-            initial={{ opacity: 0, scale: 1.02 }}
+            initial={{ opacity: 0, scale: 1.01 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: '-40px' }}
-            transition={{ duration: 0.95, ease: EASE_SMOOTH }}
+            transition={{ duration: 0.85, ease: EASE_SMOOTH }}
             className="lg:col-span-4 relative flex flex-col justify-center min-h-[520px] lg:min-h-[640px]"
           >
             
             {/* Cinematic Cathedral Container */}
-            <div className="relative w-full h-full min-h-[520px] lg:min-h-[640px] border border-[rgba(255,255,255,0.12)] bg-[#080B0E] overflow-hidden group shadow-2xl">
+            <div className="relative w-full h-full min-h-[520px] lg:min-h-[640px] border border-[rgba(255,255,255,0.08)] bg-[#121519] overflow-hidden group shadow-2xl">
               
               {/* Background Cathedral Night Photo */}
               <img
@@ -293,25 +293,25 @@ export const AboutSection: React.FC = () => {
               />
 
               {/* Cinematic Vignette & Edge Blending */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#06090B] via-transparent to-transparent opacity-80" />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#06090B]/60 via-transparent to-[#06090B]/30" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0D0F12] via-transparent to-transparent opacity-80" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#0D0F12]/60 via-transparent to-[#0D0F12]/30" />
 
               {/* Subtle Tech Grid Overlay */}
               <div className="absolute inset-0 bg-tech-grid opacity-15 pointer-events-none" />
 
               {/* Floating MENTALIDADE Card */}
-              <div className="absolute top-8 right-6 bg-[#06090B]/92 border border-[rgba(255,255,255,0.15)] p-4 sm:p-5 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-[#B0B5BB] space-y-2 backdrop-blur-md shadow-2xl transition-transform duration-300 hover:-translate-y-1">
-                <span className="text-[#E5AD08] font-bold block pb-1.5 border-b border-[rgba(255,255,255,0.12)]">
+              <div className="absolute top-8 right-6 bg-[#0D0F12]/92 border border-[rgba(255,255,255,0.12)] p-4 sm:p-5 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-[#B0B5BB] space-y-2 backdrop-blur-md shadow-2xl transition-transform duration-300 hover:-translate-y-1">
+                <span className="text-[#D4A017] font-bold block pb-1.5 border-b border-[rgba(255,255,255,0.10)]">
                   MENTALIDADE
                 </span>
-                <div className="hover:text-[#F4F4F1] transition-colors duration-200">— DISCIPLINA</div>
-                <div className="hover:text-[#F4F4F1] transition-colors duration-200">— ESTRATÉGIA</div>
-                <div className="hover:text-[#F4F4F1] transition-colors duration-200">— CONSISTÊNCIA</div>
-                <div className="hover:text-[#F4F4F1] transition-colors duration-200">— EVOLUÇÃO</div>
+                <div className="hover:text-[#F5F7FA] transition-colors duration-200">— DISCIPLINA</div>
+                <div className="hover:text-[#F5F7FA] transition-colors duration-200">— ESTRATÉGIA</div>
+                <div className="hover:text-[#F5F7FA] transition-colors duration-200">— CONSISTÊNCIA</div>
+                <div className="hover:text-[#F5F7FA] transition-colors duration-200">— EVOLUÇÃO</div>
               </div>
 
               {/* Subtle Bottom Right Radar Mark */}
-              <div className="absolute bottom-4 left-4 font-mono text-[9px] text-[#737C85] tracking-widest uppercase">
+              <div className="absolute bottom-4 left-4 font-mono text-[9px] text-[#7C8793] tracking-widest uppercase">
                 COORD: 15°47'38"S 47°52'01"W // BSB
               </div>
 
@@ -323,29 +323,29 @@ export const AboutSection: React.FC = () => {
 
         {/* ─── TIMELINE INFERIOR (Ampla, 4 Colunas com Divisores Verticais) ─── */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
-          transition={{ duration: 0.8, delay: 0.1, ease: EASE_SMOOTH }}
-          className="bg-[#080B0E] border border-[rgba(255,255,255,0.10)] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 shadow-xl"
+          transition={{ duration: 0.75, delay: 0.08, ease: EASE_SMOOTH }}
+          className="bg-[#121519] border border-[rgba(255,255,255,0.08)] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 shadow-xl"
         >
           {milestones.map((m, idx) => (
             <div
               key={m.period}
               className={`p-6 sm:p-8 flex flex-col justify-center ${
                 idx < milestones.length - 1
-                  ? 'border-b sm:border-b-0 lg:border-r border-[rgba(255,255,255,0.10)]'
+                  ? 'border-b sm:border-b-0 lg:border-r border-[rgba(255,255,255,0.08)]'
                   : ''
-              } hover:bg-[#0C1014] transition-colors duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]`}
+              } hover:bg-[#161A20] transition-colors duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]`}
             >
-              <span className="font-mono text-xl sm:text-2xl lg:text-[26px] font-bold text-[#E5AD08] tracking-wider block mb-1">
+              <span className="font-mono text-xl sm:text-2xl lg:text-[26px] font-bold text-[#D4A017] tracking-wider block mb-1">
                 {m.period}
               </span>
-              <p className="font-condensed text-base sm:text-lg lg:text-xl font-bold uppercase tracking-tight text-[#F4F4F1]">
+              <p className="font-condensed text-base sm:text-lg lg:text-xl font-bold uppercase tracking-tight text-[#F5F7FA]">
                 {m.label}
               </p>
               {m.sub && (
-                <span className="text-[11px] font-mono text-[#737C85] uppercase tracking-widest block mt-0.5">
+                <span className="text-[11px] font-mono text-[#7C8793] uppercase tracking-widest block mt-0.5">
                   {m.sub}
                 </span>
               )}
@@ -354,17 +354,17 @@ export const AboutSection: React.FC = () => {
         </motion.div>
 
         {/* ─── FOOTER TÉCNICO DA SEÇÃO ─── */}
-        <div className="mt-12 pt-6 border-t border-[rgba(255,255,255,0.08)] flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[11px] text-[#737C85] tracking-[0.2em] uppercase">
+        <div className="mt-12 pt-6 border-t border-[rgba(255,255,255,0.08)] flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[11px] text-[#7C8793] tracking-[0.2em] uppercase">
           
           {/* Left Index & Micro-graphic */}
           <div className="flex items-center gap-4">
             <div>
-              <span className="text-[#E5AD08] font-bold">06</span> / 07
+              <span className="text-[#D4A017] font-bold">06</span> / 07
             </div>
             <div className="hidden sm:flex items-center gap-1 opacity-50">
-              <div className="w-12 h-[1px] bg-[#E5AD08]" />
-              <div className="w-1.5 h-1.5 rounded-full bg-[#E5AD08]" />
-              <div className="w-6 h-[1px] bg-[#E5AD08]/40" />
+              <div className="w-12 h-[1px] bg-[#D4A017]" />
+              <div className="w-1.5 h-1.5 rounded-full bg-[#D4A017]" />
+              <div className="w-6 h-[1px] bg-[#D4A017]/40" />
             </div>
           </div>
 
@@ -374,15 +374,15 @@ export const AboutSection: React.FC = () => {
           </div>
 
           {/* Right Radar & Alignment dots */}
-          <div className="flex items-center gap-3 text-[#E5AD08]">
-            <div className="w-4 h-4 rounded-full border border-[#E5AD08] flex items-center justify-center">
-              <div className="w-1 h-1 bg-[#E5AD08] rounded-full" />
+          <div className="flex items-center gap-3 text-[#D4A017]">
+            <div className="w-4 h-4 rounded-full border border-[#D4A017] flex items-center justify-center">
+              <div className="w-1 h-1 bg-[#D4A017] rounded-full" />
             </div>
             <div className="flex items-center gap-1 opacity-60">
-              <span className="w-1 h-1 rounded-full bg-[#737C85]" />
-              <span className="w-1 h-1 rounded-full bg-[#737C85]" />
-              <span className="w-1 h-1 rounded-full bg-[#737C85]" />
-              <span className="w-1 h-1 rounded-full bg-[#737C85]" />
+              <span className="w-1 h-1 rounded-full bg-[#7C8793]" />
+              <span className="w-1 h-1 rounded-full bg-[#7C8793]" />
+              <span className="w-1 h-1 rounded-full bg-[#7C8793]" />
+              <span className="w-1 h-1 rounded-full bg-[#7C8793]" />
             </div>
           </div>
 

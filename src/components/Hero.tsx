@@ -74,7 +74,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick, onContactClick }) =>
   return (
     <section
       id="inicio"
-      className="relative min-h-screen flex flex-col justify-between pt-8 sm:pt-12 md:pt-16 pb-8 sm:pb-10 overflow-hidden bg-[#06090B] border-b border-[rgba(255,255,255,0.10)]"
+      className="relative min-h-screen flex flex-col justify-between pt-8 sm:pt-12 md:pt-16 pb-8 sm:pb-10 overflow-hidden bg-[#0D0F12] border-b border-[rgba(255,255,255,0.08)]"
     >
       {/* Background Grid & Radar Overlay */}
       <div className="absolute inset-0 bg-tech-grid opacity-30 pointer-events-none" />
@@ -231,16 +231,16 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick, onContactClick }) =>
       <div className="relative max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 w-full flex items-center justify-between z-10">
         <button
           onClick={onExploreClick}
-          className="flex items-center gap-2 text-[10px] font-mono text-[#737C85] hover:text-[#E5AD08] transition-colors duration-300 uppercase tracking-[0.2em] cursor-pointer"
+          className="flex items-center gap-2 text-[10px] font-mono text-[#7C8793] hover:text-[#D4A017] transition-colors duration-300 uppercase tracking-[0.2em] cursor-pointer"
         >
           <span>SCROLL</span>
           <div className="flex items-center gap-1">
-            <div className="w-4 h-[1px] bg-[#E5AD08]" />
-            <div className="w-1.5 h-1.5 bg-[#E5AD08] rounded-full" />
+            <div className="w-4 h-[1px] bg-[#D4A017]" />
+            <div className="w-1.5 h-1.5 bg-[#D4A017] rounded-full" />
           </div>
         </button>
 
-        <div className="hidden sm:flex items-center gap-4 text-[9px] font-mono text-[#737C85] tracking-widest uppercase">
+        <div className="hidden sm:flex items-center gap-4 text-[9px] font-mono text-[#7C8793] tracking-widest uppercase">
           <span>BSB // 15°47'38"S 47°52'01"W</span>
           <span>•</span>
           <span>SISTEMA: ATIVO</span>

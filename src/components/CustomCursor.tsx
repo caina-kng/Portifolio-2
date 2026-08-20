@@ -117,12 +117,12 @@ export const CustomCursor: React.FC = () => {
       {/* Inner Precision Dot */}
       <div
         ref={dotRef}
-        className="fixed top-0 left-0 w-2 h-2 bg-[#E5AD08] rounded-full pointer-events-none opacity-0 shadow-[0_0_8px_#E5AD08] transition-opacity duration-300"
+        className="fixed top-0 left-0 w-2 h-2 bg-[#D4A017] rounded-full pointer-events-none opacity-0 shadow-[0_0_8px_#D4A017] transition-opacity duration-300"
       />
       {/* Outer Smooth Easing Ring */}
       <div
         ref={ringRef}
-        className="fixed top-0 left-0 w-7 h-7 border border-[#E5AD08]/60 rounded-full pointer-events-none opacity-0 bg-transparent transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]"
+        className="fixed top-0 left-0 w-7 h-7 border border-[#D4A017]/60 rounded-full pointer-events-none opacity-0 bg-transparent transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]"
       />
     </div>
   );

@@ -27,8 +27,8 @@ export function calculateAdaptiveDuration(distance: number): number {
   if (absDist === 0) return 0;
   
   // Power-based scaling keeps short jumps responsive while giving long journeys ample breathing room
-  const duration = 500 + Math.pow(absDist / 1000, 0.65) * 280;
-  return Math.min(Math.max(duration, 480), 1200);
+  const duration = 400 + Math.pow(absDist / 1000, 0.55) * 300;
+  return Math.min(Math.max(duration, 380), 880);
 }
 
 /**

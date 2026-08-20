@@ -32,26 +32,26 @@ export const ProjectSection: React.FC = () => {
   return (
     <section
       id="projetos"
-      className="py-24 sm:py-32 bg-[#06090B] border-b border-[rgba(255,255,255,0.10)] relative overflow-hidden"
+      className="py-24 sm:py-32 bg-[#0D0F12] border-b border-[rgba(255,255,255,0.08)] relative overflow-hidden"
     >
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
         
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.8, ease: EASE_SMOOTH }}
+          transition={{ duration: 0.75, ease: EASE_SMOOTH }}
           className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16"
         >
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <span className="font-mono text-xs text-[#E5AD08] tracking-widest uppercase font-bold">
+              <span className="font-mono text-xs text-[#D4A017] tracking-widest uppercase font-bold">
                 03 — PROJETOS
               </span>
-              <div className="w-8 h-[1px] bg-[#E5AD08]/60" />
+              <div className="w-8 h-[1px] bg-[#D4A017]/60" />
             </div>
-            <h2 className="font-condensed text-4xl sm:text-6xl font-bold tracking-tight uppercase text-[#F4F4F1] mb-2">
+            <h2 className="font-condensed text-4xl sm:text-6xl font-bold tracking-tight uppercase text-[#F5F7FA] mb-2">
               PROJETOS EM DESTAQUE
             </h2>
             <p className="text-sm sm:text-base text-[#B0B5BB] font-body max-w-xl">
@@ -63,7 +63,7 @@ export const ProjectSection: React.FC = () => {
             href="https://github.com/caina-kng"
             target="_blank"
             rel="noopener noreferrer"
-            className="interactive-btn group inline-flex items-center gap-2 border border-[rgba(255,255,255,0.15)] hover:border-[#E5AD08] px-5 py-2.5 text-xs font-mono font-bold uppercase tracking-wider text-[#F4F4F1] hover:text-[#E5AD08] cursor-pointer self-start md:self-auto"
+            className="interactive-btn group inline-flex items-center gap-2 border border-[rgba(255,255,255,0.15)] hover:border-[#D4A017] px-5 py-2.5 text-xs font-mono font-bold uppercase tracking-wider text-[#F5F7FA] hover:text-[#D4A017] cursor-pointer self-start md:self-auto"
           >
             <span>VER TODOS OS PROJETOS</span>
             <span className="interactive-arrow">↗</span>
@@ -72,17 +72,17 @@ export const ProjectSection: React.FC = () => {
 
         {/* Main Project Feature Container */}
         <motion.div
-          id="construcao"
-          initial={{ opacity: 0, y: 20 }}
+          id="projeto-app-destaque"
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-50px' }}
-          transition={{ duration: 0.85, ease: EASE_SMOOTH }}
-          className="relative bg-[#0C1014] border border-[rgba(255,255,255,0.10)] p-6 sm:p-8 lg:p-10 shadow-2xl scroll-mt-24"
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.8, ease: EASE_SMOOTH }}
+          className="relative bg-[#121519] border border-[rgba(255,255,255,0.08)] p-6 sm:p-8 lg:p-10 shadow-2xl scroll-mt-24"
         >
           
           {/* Top Left Number Index */}
           <div className="mb-4">
-            <span className="font-mono text-lg font-bold text-[#E5AD08]">
+            <span className="font-mono text-lg font-bold text-[#D4A017]">
               01
             </span>
           </div>
@@ -93,11 +93,11 @@ export const ProjectSection: React.FC = () => {
             <div className="lg:col-span-5 flex flex-col items-center justify-center">
               
               <motion.div
-                initial={{ opacity: 0, scale: 1.02 }}
+                initial={{ opacity: 0, scale: 1.01 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: '-40px' }}
-                transition={{ duration: 0.9, ease: EASE_SMOOTH }}
-                className="relative w-full overflow-hidden border border-[rgba(255,255,255,0.10)] bg-[#06090B] p-4 sm:p-6 group"
+                transition={{ duration: 0.8, ease: EASE_SMOOTH }}
+                className="relative w-full overflow-hidden border border-[rgba(255,255,255,0.08)] bg-[#0D0F12] p-4 sm:p-6 group"
               >
                 <img
                   src={appMockupImage}
@@ -108,9 +108,9 @@ export const ProjectSection: React.FC = () => {
 
                 {/* Status Badge */}
                 <div className="mt-4 pt-3 border-t border-[rgba(255,255,255,0.08)] flex items-center justify-between text-[11px] font-mono">
-                  <span className="text-[#737C85] uppercase tracking-wider">STATUS</span>
-                  <span className="flex items-center gap-1.5 text-[#E5AD08] font-bold tracking-wide">
-                    <span className="w-2 h-2 rounded-full bg-[#E5AD08] animate-pulse" />
+                  <span className="text-[#7C8793] uppercase tracking-wider">STATUS</span>
+                  <span className="flex items-center gap-1.5 text-[#D4A017] font-bold tracking-wide">
+                    <span className="w-2 h-2 rounded-full bg-[#D4A017] animate-pulse" />
                     EM DESENVOLVIMENTO
                   </span>
                 </div>
@@ -123,16 +123,16 @@ export const ProjectSection: React.FC = () => {
               
               {/* Category & Badge */}
               <div className="flex flex-wrap items-center gap-3">
-                <span className="text-xs font-mono text-[#E5AD08] uppercase tracking-[0.2em] font-semibold">
+                <span className="text-xs font-mono text-[#D4A017] uppercase tracking-[0.2em] font-semibold">
                   SPORTSTECH • IA • BASQUETE
                 </span>
-                <span className="px-2.5 py-0.5 border border-[#E5AD08] text-[#E5AD08] text-[10px] font-mono uppercase font-bold tracking-wider">
+                <span className="px-2.5 py-0.5 border border-[#D4A017] text-[#D4A017] text-[10px] font-mono uppercase font-bold tracking-wider">
                   EM DESENVOLVIMENTO
                 </span>
               </div>
 
               {/* Title */}
-              <h3 className="font-condensed text-3xl sm:text-5xl font-bold uppercase tracking-tight text-[#F4F4F1] leading-tight">
+              <h3 className="font-condensed text-3xl sm:text-5xl font-bold uppercase tracking-tight text-[#F5F7FA] leading-tight">
                 APP DE TREINAMENTO DE BASQUETE COM IA
               </h3>
 
@@ -146,13 +146,13 @@ export const ProjectSection: React.FC = () => {
                 
                 {/* OBJETIVO */}
                 <motion.div
-                  initial={{ opacity: 0, y: 15 }}
+                  initial={{ opacity: 0, y: 12 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.1, ease: EASE_SMOOTH }}
-                  className="interactive-card bg-[#10151A] border border-[rgba(255,255,255,0.08)] p-4 space-y-2 hover:border-[#E5AD08]/40"
+                  transition={{ duration: 0.6, delay: 0.08, ease: EASE_SMOOTH }}
+                  className="interactive-card bg-[#161A20] border border-[rgba(255,255,255,0.08)] p-4 space-y-2 hover:border-[#D4A017]/40"
                 >
-                  <div className="flex items-center gap-2 text-[#E5AD08]">
+                  <div className="flex items-center gap-2 text-[#D4A017]">
                     <Target className="w-4 h-4" />
                     <span className="font-mono text-xs font-bold tracking-wider uppercase">
                       OBJETIVO
@@ -165,13 +165,13 @@ export const ProjectSection: React.FC = () => {
 
                 {/* PROBLEMA */}
                 <motion.div
-                  initial={{ opacity: 0, y: 15 }}
+                  initial={{ opacity: 0, y: 12 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.18, ease: EASE_SMOOTH }}
-                  className="interactive-card bg-[#10151A] border border-[rgba(255,255,255,0.08)] p-4 space-y-2 hover:border-[#E5AD08]/40"
+                  transition={{ duration: 0.6, delay: 0.16, ease: EASE_SMOOTH }}
+                  className="interactive-card bg-[#161A20] border border-[rgba(255,255,255,0.08)] p-4 space-y-2 hover:border-[#D4A017]/40"
                 >
-                  <div className="flex items-center gap-2 text-[#E5AD08]">
+                  <div className="flex items-center gap-2 text-[#D4A017]">
                     <AlertCircle className="w-4 h-4" />
                     <span className="font-mono text-xs font-bold tracking-wider uppercase">
                       PROBLEMA
@@ -184,13 +184,13 @@ export const ProjectSection: React.FC = () => {
 
                 {/* IDEIA */}
                 <motion.div
-                  initial={{ opacity: 0, y: 15 }}
+                  initial={{ opacity: 0, y: 12 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.26, ease: EASE_SMOOTH }}
-                  className="interactive-card bg-[#10151A] border border-[rgba(255,255,255,0.08)] p-4 space-y-2 hover:border-[#E5AD08]/40"
+                  transition={{ duration: 0.6, delay: 0.24, ease: EASE_SMOOTH }}
+                  className="interactive-card bg-[#161A20] border border-[rgba(255,255,255,0.08)] p-4 space-y-2 hover:border-[#D4A017]/40"
                 >
-                  <div className="flex items-center gap-2 text-[#E5AD08]">
+                  <div className="flex items-center gap-2 text-[#D4A017]">
                     <Lightbulb className="w-4 h-4" />
                     <span className="font-mono text-xs font-bold tracking-wider uppercase">
                       IDEIA
@@ -205,7 +205,7 @@ export const ProjectSection: React.FC = () => {
 
               {/* PRÓXIMOS PASSOS Roadmap */}
               <div className="pt-3 border-t border-[rgba(255,255,255,0.08)] space-y-3">
-                <span className="text-xs font-mono text-[#E5AD08] tracking-widest uppercase font-bold block">
+                <span className="text-xs font-mono text-[#D4A017] tracking-widest uppercase font-bold block">
                   PRÓXIMOS PASSOS
                 </span>
 
@@ -214,19 +214,19 @@ export const ProjectSection: React.FC = () => {
                     <React.Fragment key={step.label}>
                       <div className="flex items-center gap-1.5">
                         {step.completed ? (
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#E5AD08]" />
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#D4A017]" />
                         ) : step.active ? (
-                          <div className="w-3.5 h-3.5 rounded-full border-2 border-[#E5AD08] bg-[#E5AD08]/30 flex items-center justify-center animate-pulse">
-                            <div className="w-1.5 h-1.5 bg-[#E5AD08] rounded-full" />
+                          <div className="w-3.5 h-3.5 rounded-full border-2 border-[#D4A017] bg-[#D4A017]/30 flex items-center justify-center animate-pulse">
+                            <div className="w-1.5 h-1.5 bg-[#D4A017] rounded-full" />
                           </div>
                         ) : (
-                          <Circle className="w-3.5 h-3.5 text-[#737C85]" />
+                          <Circle className="w-3.5 h-3.5 text-[#7C8793]" />
                         )}
                         <span
                           className={`${
                             step.completed || step.active
-                              ? 'text-[#F4F4F1] font-semibold'
-                              : 'text-[#737C85]'
+                              ? 'text-[#F5F7FA] font-semibold'
+                              : 'text-[#7C8793]'
                           }`}
                         >
                           {step.label}
@@ -247,14 +247,14 @@ export const ProjectSection: React.FC = () => {
                 
                 {/* Techs (8 cols) */}
                 <div className="sm:col-span-8 space-y-1.5">
-                  <span className="text-[10px] font-mono text-[#737C85] tracking-widest uppercase block">
+                  <span className="text-[10px] font-mono text-[#7C8793] tracking-widest uppercase block">
                     TECNOLOGIAS
                   </span>
                   <div className="flex flex-wrap gap-2">
                     {techStack.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2.5 py-1 bg-[#10151A] border border-[rgba(255,255,255,0.12)] text-[10px] font-mono text-[#F4F4F1] hover:border-[#E5AD08]/50 transition-colors duration-200"
+                        className="px-2.5 py-1 bg-[#161A20] border border-[rgba(255,255,255,0.12)] text-[10px] font-mono text-[#F5F7FA] hover:border-[#D4A017]/50 transition-colors duration-200"
                       >
                         {tech}
                       </span>
@@ -264,14 +264,14 @@ export const ProjectSection: React.FC = () => {
 
                 {/* Repo (4 cols) */}
                 <div className="sm:col-span-4 space-y-1.5 sm:text-right">
-                  <span className="text-[10px] font-mono text-[#737C85] tracking-widest uppercase block">
+                  <span className="text-[10px] font-mono text-[#7C8793] tracking-widest uppercase block">
                     REPOSITÓRIO
                   </span>
                   <a
                     href="https://github.com/caina-kng"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="interactive-btn group inline-flex items-center gap-1.5 text-xs font-mono text-[#F4F4F1] hover:text-[#E5AD08]"
+                    className="interactive-btn group inline-flex items-center gap-1.5 text-xs font-mono text-[#F5F7FA] hover:text-[#D4A017]"
                   >
                     <Github className="w-3.5 h-3.5" />
                     <span>Em breve</span>
